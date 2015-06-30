@@ -32,6 +32,7 @@ library/custom-post-type.php
 	- example custom taxonomy (like tags)
 */
 require_once('library/custom-post-type.php'); // you can disable this if you like
+require_once('library/findings-custom-fields.php'); // you can disable this if you like
 require_once('wp-advanced-search/wpas.php'); // adds WPAS files for building out advanced search
 /*
 library/admin.php
@@ -331,7 +332,7 @@ function wpb_change_title_text( $title ){
      $screen = get_current_screen();
 
      if  ( 'finding' == $screen->post_type ) {
-          $title = 'Enter findings title';
+          $title = 'Enter title of finding or event';
      }
 
     if  ( 'events' == $screen->post_type ) {
@@ -394,13 +395,14 @@ add_filter('the_excerpt_rss','fields_in_feed');
 
 // Add help text to right of screen in a metabox
 function wherlfinding_metabox_top_right() {
-    add_meta_box( 'after-title-help', 'HELP', 'wherlfinding_top_right_help_metabox_content', 'finding', 'side', 'high' );
+    add_meta_box( 'after-title-help', 'GETTING STARTED', 'wherlfinding_top_right_help_metabox_content', 'finding', 'side', 'high' );
 }
 // callback function to populate metabox
 function wherlfinding_top_right_help_metabox_content() { ?>
     <?php add_thickbox(); ?>
 
-    <p><a href="https://qsnapnet.com/snaps/37aw0l4lds57mn2?TB_iframe=true&width=600&height=550" class="thickbox">Adding a finding!</a></p>
+    <p>If you are adding an <strong>event</strong> (with no presentation of WHERL findings), you should select the <strong>EVENT</strong> category from the list below.<br><br> If you are adding an <strong>event</strong> where WHERL findings were presented, you should select the <strong>EVENT</strong> AND <strong>FINDING</strong> categories from the list below.<br><br> If you are adding a <strong>Finding</strong> (NOT presented at an event), select the <strong>FINDING</strong> category.<br><br>
+WHENEVER YOU SELECT THE FINDING CATEGORY, PLEASE ENSURE THAT A SUB-CATEGORY IS ALSO CHOSEN: EITHER POLICY OUTPUTS, PRESENTATIONS OR PUBLICATIONS.</p>
 
      <a href="mailto:alastair@alastaircox.com" target="_blank">Still stuck? Email Alastair</a>
 

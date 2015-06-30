@@ -188,16 +188,16 @@ function clg_findings() {
 	register_post_type( 'finding', /* (http://codex.wordpress.org/Function_Reference/register_post_type) */
 	 	// let's now add all the options for this post type
 		array('labels' => array(
-			'name' => __('Findings', 'jointstheme'), /* This is the Title of the Group */
-			'singular_name' => __('Finding', 'jointstheme'), /* This is the individual type */
-			'all_items' => __('All Findings', 'jointstheme'), /* the all items menu item */
+			'name' => __('Events/Findings', 'jointstheme'), /* This is the Title of the Group */
+			'singular_name' => __('Event/Finding', 'jointstheme'), /* This is the individual type */
+			'all_items' => __('All Events/Findings', 'jointstheme'), /* the all items menu item */
 			'add_new' => __('Add New', 'jointstheme'), /* The add new menu item */
-			'add_new_item' => __('Add New Finding', 'jointstheme'), /* Add New Display Title */
+			'add_new_item' => __('Add New Event AND/OR Finding', 'jointstheme'), /* Add New Display Title */
 			'edit' => __( 'Edit', 'jointstheme' ), /* Edit Dialog */
-			'edit_item' => __('Edit Findings', 'jointstheme'), /* Edit Display Title */
-			'new_item' => __('New Finding', 'jointstheme'), /* New Display Title */
-			'view_item' => __('View Findings', 'jointstheme'), /* View Display Title */
-			'search_items' => __('Search Findings', 'jointstheme'), /* Search Custom Type Title */
+			'edit_item' => __('Edit Events/Findings', 'jointstheme'), /* Edit Display Title */
+			'new_item' => __('New Event/Finding', 'jointstheme'), /* New Display Title */
+			'view_item' => __('View Events/Findings', 'jointstheme'), /* View Display Title */
+			'search_items' => __('Search Events/Findings', 'jointstheme'), /* Search Custom Type Title */
 			'not_found' =>  __('Nothing found in the Database.', 'jointstheme'), /* This displays if there are no entries yet */
 			'not_found_in_trash' => __('Nothing found in Trash', 'jointstheme'), /* This displays if there is nothing in the trash */
 			'parent_item_colon' => ''
@@ -224,6 +224,43 @@ function clg_findings() {
 	// adding the function to the Wordpress init
 	add_action( 'init', 'clg_findings');
 
+// Register Custom Taxonomy
+function custom_taxonomy() {
+
+	$labels = array(
+		'name'                       => _x( 'Categories', 'Taxonomy General Name', 'text_domain' ),
+		'singular_name'              => _x( 'Category', 'Taxonomy Singular Name', 'text_domain' ),
+		'menu_name'                  => __( 'Categories', 'text_domain' ),
+		'all_items'                  => __( 'All Items', 'text_domain' ),
+		'parent_item'                => __( 'Parent Item', 'text_domain' ),
+		'parent_item_colon'          => __( 'Parent Item:', 'text_domain' ),
+		'new_item_name'              => __( 'New Item Name', 'text_domain' ),
+		'add_new_item'               => __( 'Add New Item', 'text_domain' ),
+		'edit_item'                  => __( 'Edit Item', 'text_domain' ),
+		'update_item'                => __( 'Update Item', 'text_domain' ),
+		'view_item'                  => __( 'View Item', 'text_domain' ),
+		'separate_items_with_commas' => __( 'Separate items with commas', 'text_domain' ),
+		'add_or_remove_items'        => __( 'Add or remove items', 'text_domain' ),
+		'choose_from_most_used'      => __( 'Choose from the most used', 'text_domain' ),
+		'popular_items'              => __( 'Popular Items', 'text_domain' ),
+		'search_items'               => __( 'Search Items', 'text_domain' ),
+		'not_found'                  => __( 'Not Found', 'text_domain' ),
+	);
+	$args = array(
+		'labels'                     => $labels,
+		'hierarchical'               => true,
+		'public'                     => true,
+		'show_ui'                    => true,
+		'show_admin_column'          => true,
+		'show_in_nav_menus'          => true,
+		'show_tagcloud'              => true,
+	);
+	register_taxonomy( 'findings_categories', array( 'finding' ), $args );
+
+}
+
+// Hook into the 'init' action
+add_action( 'init', 'custom_taxonomy', 0 );
 
 
 		// let's create the function for the custom type
@@ -466,43 +503,6 @@ if(function_exists("register_field_group"))
 		'menu_order' => 0,
 	));
 	register_field_group(array (
-		'id' => 'acf_category',
-		'title' => 'Category',
-		'fields' => array (
-			array (
-				'key' => 'field_5447cc0bf4e08',
-				'label' => 'Finding Type',
-				'name' => 'finding_type',
-				'type' => 'checkbox',
-				'choices' => array (
-					'Policy Outputs' => 'Policy Outputs',
-					'Presentations' => 'Presentations',
-					'Publications' => 'Publications',
-				),
-				'default_value' => '',
-				'layout' => 'vertical',
-			),
-		),
-		'location' => array (
-			array (
-				array (
-					'param' => 'post_type',
-					'operator' => '==',
-					'value' => 'finding',
-					'order_no' => 0,
-					'group_no' => 0,
-				),
-			),
-		),
-		'options' => array (
-			'position' => 'side',
-			'layout' => 'default',
-			'hide_on_screen' => array (
-			),
-		),
-		'menu_order' => 0,
-	));
-	register_field_group(array (
 		'id' => 'acf_contact',
 		'title' => 'Details + Contact',
 		'fields' => array (
@@ -574,15 +574,6 @@ if(function_exists("register_field_group"))
 				array (
 					'param' => 'post_type',
 					'operator' => '==',
-					'value' => 'events',
-					'order_no' => 0,
-					'group_no' => 0,
-				),
-			),
-			array (
-				array (
-					'param' => 'post_type',
-					'operator' => '==',
 					'value' => 'news',
 					'order_no' => 0,
 					'group_no' => 1,
@@ -591,62 +582,6 @@ if(function_exists("register_field_group"))
 		),
 		'options' => array (
 			'position' => 'acf_after_title',
-			'layout' => 'default',
-			'hide_on_screen' => array (
-			),
-		),
-		'menu_order' => 0,
-	));
-	register_field_group(array (
-		'id' => 'acf_event-dates',
-		'title' => 'Date + Time',
-		'fields' => array (
-			array (
-				'key' => 'field_544797d80f512',
-				'label' => 'Event Start',
-				'name' => 'event_start',
-				'type' => 'date_picker',
-                'required' => 1,
-				'date_format' => 'yymmdd',
-				'display_format' => 'dd/mm/yy',
-				'first_day' => 1,
-			),
-			array (
-				'key' => 'field_544798030f513',
-				'label' => 'Event Finish',
-				'name' => 'event_finish',
-				'type' => 'date_picker',
-				'date_format' => 'yymmdd',
-				'display_format' => 'dd/mm/yy',
-				'first_day' => 1,
-			),
-            array (
-				'key' => 'field_5463c349b2f4c',
-				'label' => 'Event Time',
-				'name' => 'event_time',
-				'type' => 'text',
-				'instructions' => '',
-				'default_value' => '',
-				'placeholder' => 'Enter start/end time of event (optional)',
-				'prepend' => '',
-				'append' => '',
-				'formatting' => 'none',
-				'maxlength' => '',
-			),
-		),
-		'location' => array (
-			array (
-				array (
-					'param' => 'post_type',
-					'operator' => '==',
-					'value' => 'events',
-					'order_no' => 0,
-					'group_no' => 0,
-				),
-			),
-		),
-		'options' => array (
-			'position' => 'side',
 			'layout' => 'default',
 			'hide_on_screen' => array (
 			),
@@ -699,183 +634,6 @@ if(function_exists("register_field_group"))
 		'options' => array (
 			'position' => 'normal',
 			'layout' => 'no_box',
-			'hide_on_screen' => array (
-			),
-		),
-		'menu_order' => 0,
-	));
-	register_field_group(array (
-		'id' => 'acf_links-files',
-		'title' => 'Links + Files',
-		'fields' => array (
-			array (
-				'key' => 'field_5447a86fd5e7d',
-				'label' => 'First Upload',
-				'name' => 'file_upload',
-				'type' => 'file',
-				'save_format' => 'url',
-				'library' => 'all',
-			),
-			array (
-				'key' => 'field_5447a9a7b3f20',
-				'label' => 'Second Upload',
-				'name' => 'file_uploadb',
-				'type' => 'file',
-				'save_format' => 'object',
-				'library' => 'all',
-			),
-			array (
-				'key' => 'field_5447a9ceb3f21',
-				'label' => 'Third Upload',
-				'name' => 'file_uploadc',
-				'type' => 'file',
-				'save_format' => 'object',
-				'library' => 'all',
-			),
-			array (
-				'key' => 'field_5447cb50b0fcb',
-				'label' => 'Source Link',
-				'name' => 'external_link',
-				'type' => 'text',
-				'instructions' => 'You can use this to link to another website or a file you have uploaded elsewhere',
-				'default_value' => '',
-				'placeholder' => 'Paste the URL of an external source you wish to link to',
-				'prepend' => '',
-				'append' => '',
-				'formatting' => 'none',
-				'maxlength' => '',
-			),
-		),
-		'location' => array (
-			array (
-				array (
-					'param' => 'post_type',
-					'operator' => '==',
-					'value' => 'finding',
-					'order_no' => 0,
-					'group_no' => 0,
-				),
-			),
-			array (
-				array (
-					'param' => 'post_type',
-					'operator' => '==',
-					'value' => 'events',
-					'order_no' => 0,
-					'group_no' => 1,
-				),
-			),
-            array (
-				array (
-					'param' => 'post_type',
-					'operator' => '==',
-					'value' => 'news',
-					'order_no' => 0,
-					'group_no' => 1,
-				),
-			),
-		),
-		'options' => array (
-			'position' => 'side',
-			'layout' => 'default',
-			'hide_on_screen' => array (
-			),
-		),
-		'menu_order' => 0,
-	));
-	register_field_group(array (
-		'id' => 'acf_location',
-		'title' => 'Location',
-		'fields' => array (
-            array (
-				'key' => 'field_544799529417c',
-				'label' => 'Address',
-				'name' => 'event_address',
-				'type' => 'textarea',
-				'default_value' => '',
-				'placeholder' => 'Enter the event address itself; You can also add a map to events by using the location function below)',
-				'maxlength' => '',
-				'rows' => '',
-				'formatting' => 'none',
-			),
-			array (
-				'key' => 'field_544775c4bdf17',
-				'label' => 'Event Map',
-				'name' => 'event_map',
-				'type' => 'google_map',
-				'center_lat' => '51.5072',
-				'center_lng' => '0.1275',
-				'zoom' => '',
-				'height' => '',
-			),
-		),
-		'location' => array (
-			array (
-				array (
-					'param' => 'post_type',
-					'operator' => '==',
-					'value' => 'events',
-					'order_no' => 0,
-					'group_no' => 0,
-				),
-			),
-		),
-		'options' => array (
-			'position' => 'normal',
-			'layout' => 'default',
-			'hide_on_screen' => array (
-			),
-		),
-		'menu_order' => 0,
-	));
-	register_field_group(array (
-		'id' => 'acf_parent-project',
-		'title' => 'Parent Project',
-		'fields' => array (
-			array (
-				'key' => 'field_54467d8155780',
-				'label' => 'Findings Project',
-				'name' => 'findings_project',
-				'type' => 'relationship',
-				'return_format' => 'id',
-				'post_type' => array (
-					0 => 'projects',
-				),
-				'taxonomy' => array (
-					0 => 'all',
-				),
-				'filters' => array (
-				),
-				'result_elements' => array (
-					0 => 'post_type',
-					1 => 'post_title',
-				),
-				'max' => '',
-			),
-		),
-		'location' => array (
-			array (
-				array (
-					'param' => 'post_type',
-					'operator' => '==',
-					'value' => 'finding',
-					'order_no' => 0,
-					'group_no' => 0,
-				),
-			),
-			array (
-				array (
-					'param' => 'page_parent',
-					'operator' => '==',
-					'value' => '26',
-					'order_no' => 0,
-					'group_no' => 1,
-				),
-			),
-		),
-		'options' => array (
-			'position' => 'acf_after_title',
-			'layout' => 'default',
 			'hide_on_screen' => array (
 			),
 		),
@@ -935,61 +693,6 @@ if(function_exists("register_field_group"))
 				0 => 'the_content',
 				1 => 'excerpt',
 				2 => 'revisions',
-			),
-		),
-		'menu_order' => 0,
-	));
-	register_field_group(array (
-		'id' => 'acf_submitted-by',
-		'title' => 'Submitted By',
-		'fields' => array (
-			array (
-				'key' => 'field_5446b19b27375',
-				'label' => 'Resource Author',
-				'name' => 'resource_author',
-				'type' => 'relationship',
-				'required' => 1,
-				'return_format' => 'object',
-				'post_type' => array (
-					0 => 'people',
-				),
-				'taxonomy' => array (
-					0 => 'all',
-				),
-				'filters' => array (
-					0 => 'search',
-				),
-				'result_elements' => array (
-					0 => 'post_type',
-					1 => 'post_title',
-				),
-				'max' => '',
-			),
-		),
-		'location' => array (
-			array (
-				array (
-					'param' => 'post_type',
-					'operator' => '==',
-					'value' => 'post',
-					'order_no' => 0,
-					'group_no' => 0,
-				),
-			),
-			array (
-				array (
-					'param' => 'post_type',
-					'operator' => '==',
-					'value' => 'finding',
-					'order_no' => 0,
-					'group_no' => 1,
-				),
-			),
-		),
-		'options' => array (
-			'position' => 'acf_after_title',
-			'layout' => 'default',
-			'hide_on_screen' => array (
 			),
 		),
 		'menu_order' => 0,
@@ -1089,39 +792,6 @@ if(function_exists("register_field_group"))
 		),
 		'options' => array (
 			'position' => 'acf_after_title',
-			'layout' => 'default',
-			'hide_on_screen' => array (
-			),
-		),
-		'menu_order' => 0,
-	));
-    register_field_group(array (
-		'id' => 'acf_findings-date',
-		'title' => 'Findings Date',
-		'fields' => array (
-			array (
-				'key' => 'field_5580567789f6a',
-				'label' => 'Add a date',
-				'name' => 'findings_date',
-				'type' => 'date_picker',
-				'date_format' => 'yymmdd',
-				'display_format' => 'dd/mm/yy',
-				'first_day' => 1,
-			),
-		),
-		'location' => array (
-			array (
-				array (
-					'param' => 'post_type',
-					'operator' => '==',
-					'value' => 'finding',
-					'order_no' => 0,
-					'group_no' => 0,
-				),
-			),
-		),
-		'options' => array (
-			'position' => 'side',
 			'layout' => 'default',
 			'hide_on_screen' => array (
 			),
