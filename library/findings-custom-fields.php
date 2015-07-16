@@ -875,7 +875,7 @@ if(function_exists("register_field_group"))
 			'hide_on_screen' => array (
 			),
 		),
-		'menu_order' => -3,
+		'menu_order' => -5,
 	));
 }
 
