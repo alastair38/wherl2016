@@ -1,119 +1,155 @@
-<div class="archive-findings clearfix">
 
-    <article id="post-<?php the_ID(); ?>" class="" role="article">
+<div class="large-6 medium-6 columns clearfix">
 
-    <div class="columns">
+     <div class="archive-findings columns">
+    <article id="post-<?php the_ID(); ?>" class="columns" role="article">
 
 
+
+<header>
+ <h3><?php echo '<a href="' . get_permalink( $finding->ID ) . '">' . get_the_title( $finding->ID ) . '</a>'; ?></h3>
+ <?php if( get_field('findings_date') ): ?>
+                            <p><?php $date = DateTime::createFromFormat('Ymd', get_field('findings_date'));
+echo 'Posted on ' . $date->format('d F Y') . ' in '; ?>
+                             <?php endif; ?>
+<?php
+                                                         global $post;
+$category_id = get_term_by('slug', 'finding', 'findings_categories');
+
+$terms = get_the_terms($post->ID, 'findings_categories');
+if ($terms) {
+foreach ($terms as $term) {
+    if($term->parent === $category_id->term_id) {
+        echo '<a href="' . get_term_link($term, 'findings_categories') . '">' . $term->name . '</a>, ';
+    }
+}
+echo '</p>';
+};?>
+
+
+</header>
+
+ <!-- check to see whether the post is categorised as a 'finding'. If so, output findings fields -->
+
+<?php // if (has_term( 'finding', 'findings_categories' )) {?>
+
+ <div id="details" class="columns" style="background: whitesmoke;" >
+     <h3>Quick Overview</h3>
   <ul class="findings-authors">
-      <?php if( get_field('file_upload') ): ?>
 
-                            <?php endif; ?>
-         <?php $types = get_field('finding_type' );
-                                 if( $types ): ?>
+<!-- Get the child categories of Finding that the post is assigned to eg: Presentations, Policy Output, Publications -->
 
 
-							<?php foreach( $types as $type): ?>
+<!-- Get the authors assigned to the finding -->
+
+                            <?php $authors = get_field('resource_author' ); ?>
+
+							<h5>Authors</h5>
 
 
-										<li class="findings-type"><?php echo $type; ?></li>
+							<?php
+                            $authorstr = '';
+                            foreach( $authors as $author):
+                            $authorstr .= '<li><a href="' . get_permalink( $author->ID ) . '">' . get_the_title( $author->ID ).'</a></li>' . ', ';
 
 
-							<?php endforeach; ?>
+                           endforeach;
+      ?>
 
-                           <?php endif; ?>
-
-                                     <?php $authors = get_field('resource_author' );
-                                 if( $authors ): ?>
-
-							<span>submitted by </span>
-
-							<?php foreach( $authors as $author): ?>
-
-									<li><a href="<?php echo get_permalink( $author->ID ); ?>" title="View <?php echo get_the_title( $author->ID ); ?>'s Profile">
-										<?php echo get_the_title( $author->ID ); ?>
-									</a></li>
-
-							<?php endforeach;
- ?>
+      <?php echo rtrim($authorstr, ', '); ?>
 
 
 
-						<?php endif; ?>
+
+						<?php // endif; ?>
 
   </ul>
 
+<!-- Get the projects assigned to the finding -->
 
-    <h6><?php echo get_the_title( $finding->ID ); ?></h6>
-    <?php if( get_field('findings_date') ): ?>
-                            <p><?php $date = DateTime::createFromFormat('Ymd', get_field('findings_date'));
-echo '<em>Posted - ' . $date->format('d F Y') . '</em>'; ?></p>
-                             <?php endif; ?>
-
-    <?php the_content($finding->ID);?>
-
-
-
-
-                            </div>
-
-    <header class="article-header columns">
-
-
-    </header> <!-- end article header -->
-
-    <section>
-
-         <div class="columns">
-                                <?php $projects = get_field('findings_project');
+                             <?php $projects = get_field('findings_project');
                                  if( $projects ): ?>
 
-             <ul class="findings-authors"><span>Assigned to</span>
-							<?php foreach( $projects as $project): ?>
-
-										<li class="findings-project"><a href="<?php echo get_permalink( $project ); ?>" title="View the <?php echo get_the_title($project  ); ?> project page">
-										<?php echo get_the_title( $project ); ?>
-									</a></li>
-
-							<?php endforeach; ?>
-
-                                     </ul>
-
-                 <ul class="findings-downloads">
-							<?php if( get_field('file_upload') ): ?>
-                             <li><a href="<?php the_field( 'file_upload' ); ?>" target="_blank" title="Download <?php the_field( 'file_upload' ); ?>">
-										Click to download findings <i class="fi-download"></i>
-									</a></li>
-                            <?php endif; ?>
-
-                            <?php if( get_field('file_uploadb') ): ?>
-                             <li><a href="<?php the_field( 'file_uploadb' ); ?>" target="_blank" title="Download <?php the_field( 'file_upload' ); ?>">
-										Click to download findings <i class="fi-download"></i>
-									</a></li>
-                            <?php endif; ?>
-
-                            <?php if( get_field('file_uploadc') ): ?>
-                             <li><a href="<?php the_field( 'file_uploadc' ); ?>" target="_blank" title="Download <?php the_field( 'file_upload' ); ?>">
-										Click to download findings <i class="fi-download"></i>
-									</a></li>
-                            <?php endif; ?>
-
-                            <?php if( get_field('external_link') ): ?>
-                             <li><a href="<?php the_field( 'external_link' ); ?>" target="_blank" title="This will take you to an external website">
-										View More Information <i class="fi-info"></i>
-									</a></li>
-                            <?php endif; ?>
+             <ul class="findings-authors"><h5>Wherl Project</h5>
 
 
+                 <?php
+                            $projectstr = '';
+                            foreach( $projects as $project):
+                            $projectstr .= '<li><a href="' . get_permalink( $project ) . '">' . get_the_title( $project ).'</a></li>' . ', ';
+
+
+                           endforeach;
+      ?>
+
+      <?php echo rtrim($projectstr, ', '); ?>
+
+
+
+
+                  <?php endif; ?>
 
                                      </ul>
 
-						<?php endif; ?>
+<?php // }?>
+
+<!-- end of finding term conditional tag -->
+
+
+             <?php if (has_term( 'policy-outputs', 'findings_categories' )) {
+                            echo '<h5>Publication Details</h5>';
+                            if( get_field('date_of_publication') ) {
+                            $pubDate = DateTime::createFromFormat('Ymd', get_field('date_of_publication'));
+                            echo '<p>Published on ' . $pubDate->format('d F Y') ;
+                            }
+                            $published = get_field('published_by');
+                            $publishedLoc = ' (' . get_field('place_of_publication') . ')';
+                            if( $published ) {
+                            echo ' by ' . $published . $publishedLoc . '</p>';
+                            }
+                                 }?>
+             <?php if (has_term( 'publications', 'findings_categories' )) {
+                            echo '<h5>Publication Details</h5>';
+                            $journal = get_field('journal_name');
+                            if( $journal ) {
+                            echo '<span><em> ' . $journal . '</em>.</span>';
+                            }
+                            $volume = get_field('volume');
+                            if( $volume ) {
+                            echo '<span> Volume ' . $volume . '.</span>';
+                            }
+                            $issue = get_field('issue');
+                            if( $issue ) {
+                            echo '<span> Issue ' . $issue . '.</span>';
+                            }
+                            $pgnos = get_field('page_numbers');
+                            if( $pgnos ) {
+                            echo '<span> pp' . $pgnos . '.</span>';
+                            }
+                            $doi = get_field('doi');
+                            if( $doi ) {
+                            echo '<span> DOI: ' . $doi . '.</span>';
+                            }
+                            $isbn = get_field('isbn');
+                            if( $isbn ) {
+                            echo '<p> ISBN: ' . $isbn . '.</p>';
+                            }
+
+                                 }?>
+
+<?php if( get_field('conference_name') ): ?>
+              <?php $date = DateTime::createFromFormat('Ymd', get_field('findings_date'));
+                    $date = ' (' . $date->format('d F Y') . ')'; ?>
+             <p><em>This finding was presented at the <strong><?php echo get_field('conference_name') .  $date ;?></strong></em></p>
+                            <?php endif; ?>
+
+
                             </div>
 
-	<?php get_template_part( 'partials/content', 'share' ); ?>
 
-    </section> <!-- end article section -->
 
     </article> <!-- end article -->
+        <?php echo '<a href="' . get_permalink( $finding->ID ) . '" class="details"> View Details </a>'; ?>
+</div>
+
 </div>

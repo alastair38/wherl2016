@@ -29,7 +29,8 @@ Template Name: Events
 
     $wp_query = null;
     $args = array(
-        'post_type' => 'events',
+        'post_type' => 'finding',
+        'findings_categories' => 'event',
         'orderby'    => 'meta_value_num',
 	    'order'      => 'DESC',
         'meta_key'  => 'event_start',

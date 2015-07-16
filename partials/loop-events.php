@@ -26,6 +26,14 @@ echo $date->format('F d, Y'); ?>
                                     <?php endif; ?>
 	</section> <!-- end article section -->
 
+    <footer class="article-footer">
+         <?php if( get_field('conference_name') ): ?>
+              <?php $date = DateTime::createFromFormat('Ymd', get_field('findings_date'));
+                    $date = ' (' . $date->format('d F Y') . ')'; ?>
+        <p>Presented at <strong><?php echo get_field('conference_name') .  $date ;?></strong></p>
+                            <?php endif; ?>
+	</footer> <!-- end article footer -->
+
 
 	</div>
 

@@ -161,19 +161,6 @@ NAVIGATION STYLES
 }
 
 
-.findings-authors li:after
-{
-  content: ' -';
-}
-li:last-child:after
-{
-  content: '';
-}
-
-li.findings-type:after {
-    content: '';
-}
-
 ul.findings-downloads {
     list-style-type: none;
     margin-left: 0;
@@ -192,6 +179,137 @@ ul.findings-downloads {
     }
         }
 }
+
+
+/*********************
+FINDINGS + SEARCH PAGE
+*********************/
+
+#details h5 {
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+
+.single-finding article p {
+    font-size:1.2em;
+}
+
+#pubDetails {
+    margin-bottom: 1.6em;
+}
+
+a#moreInfo {
+    border: 1px solid teal;
+    border-radius: 2px;
+    margin: 0 5px;
+    padding: 0 5px;
+}
+
+a.details {
+    background: $theme-color;
+    position: absolute;
+    color: #fff !important;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 5px;
+    text-align: center;
+    transition: 350ms;
+}
+
+a.details:hover {
+    background: #414141 !important;
+}
+
+.findings {
+    background: rgba(230, 212, 61, 0.75);
+}
+
+.findings-authors {
+    margin: 1.5em 0em 1.5em 0em;
+    line-height: 1.6em;
+    h5 {
+        text-decoration: underline;
+        text-transform: uppercase;
+    }
+    & li {
+    list-style-type: none;
+    display: inline;
+    margin-right: 2px;
+    padding: 2px 0;
+    font-size: 1.25em;
+    font-weight: bold;
+    & a {
+        color: $theme-color;
+    }
+    }
+}
+
+li.findings-type {
+    color: $text-color;;
+    line-height: 2.5em;
+    text-decoration: underline;
+}
+
+li.findings-project {
+    & a {
+        color: $theme-color;
+    }
+}
+
+.archive-findings {
+    margin-top: 1em;
+    box-shadow: 0px 1px 2px 0px #999;
+    & h6 {
+        text-transform: uppercase;
+    }
+    &.columns article {
+        height: 550px;
+    }
+}
+
+#related-findings {
+    padding: 0;
+}
+
+input.wpas-submit {
+    border: none;
+    background: $theme-color;
+    color: $content-bg;
+    width: 100%;
+    text-transform: uppercase;
+}
+
+#reset {
+    background: $content-bg;
+    margin-top: 1em;
+    padding: 5px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+#search {
+    background: $theme-color;
+    margin-top: 1em;
+    padding-bottom: 1em;
+    & h5 {
+        text-align: center;
+        text-transform: uppercase;
+        color: $content-bg;
+    }
+}
+
+select {
+    border: none;
+    margin-bottom: 4px;
+}
+
+/* PAGINATION */
+
+nav.wp-prev-next ul {
+    list-style-type: none;
+}
+
 
 
 /*********************

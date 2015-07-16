@@ -434,6 +434,10 @@ Be careful with these since they can
 really slow down your CSS. Don't overdo it.
 *********************/
 /* @include css-gradient(#dfdfdf,#f8f8f8); */
+/* WHERL COLOR VARIABLES */
+/* WHERL DIMENSION VARIABLES */
+/* WHERL COLOR VARIABLES */
+/* WHERL DIMENSION VARIABLES */
 /*
   Mixin: accordion-container()
 
@@ -462,6 +466,32 @@ really slow down your CSS. Don't overdo it.
     @params $bg [ color  ]: Background color for the content when it's visible
     @params $active_class [ string ]: Class name used to keep track of which accordion tab should be visible.
 */
+/* WHERL COLOR VARIABLES */
+/* WHERL DIMENSION VARIABLES */
+/* WHERL COLOR VARIABLES */
+/* WHERL DIMENSION VARIABLES */
+/* WHERL COLOR VARIABLES */
+/* WHERL DIMENSION VARIABLES */
+/* WHERL COLOR VARIABLES */
+/* WHERL DIMENSION VARIABLES */
+/* WHERL COLOR VARIABLES */
+/* WHERL DIMENSION VARIABLES */
+/* WHERL COLOR VARIABLES */
+/* WHERL DIMENSION VARIABLES */
+/* WHERL COLOR VARIABLES */
+/* WHERL DIMENSION VARIABLES */
+/* WHERL COLOR VARIABLES */
+/* WHERL DIMENSION VARIABLES */
+/* WHERL COLOR VARIABLES */
+/* WHERL DIMENSION VARIABLES */
+/* WHERL COLOR VARIABLES */
+/* WHERL DIMENSION VARIABLES */
+/* WHERL COLOR VARIABLES */
+/* WHERL DIMENSION VARIABLES */
+/* WHERL COLOR VARIABLES */
+/* WHERL DIMENSION VARIABLES */
+/* WHERL COLOR VARIABLES */
+/* WHERL DIMENSION VARIABLES */
 /* toolbar styles */
 .icon-bar.two-up .item {
   width: 50%; }
@@ -484,6 +514,68 @@ really slow down your CSS. Don't overdo it.
 .icon-bar.six-up.vertical .item {
   width: auto; }
 
+/* WHERL COLOR VARIABLES */
+/* WHERL DIMENSION VARIABLES */
+/* WHERL COLOR VARIABLES */
+/* WHERL DIMENSION VARIABLES */
+/* WHERL COLOR VARIABLES */
+/* WHERL DIMENSION VARIABLES */
+/* WHERL COLOR VARIABLES */
+/* WHERL DIMENSION VARIABLES */
+/* WHERL COLOR VARIABLES */
+/* WHERL DIMENSION VARIABLES */
+/* WHERL COLOR VARIABLES */
+/* WHERL DIMENSION VARIABLES */
+/* WHERL COLOR VARIABLES */
+/* WHERL DIMENSION VARIABLES */
+/* WHERL COLOR VARIABLES */
+/* WHERL DIMENSION VARIABLES */
+/* WHERL COLOR VARIABLES */
+/* WHERL DIMENSION VARIABLES */
+/* WHERL COLOR VARIABLES */
+/* WHERL DIMENSION VARIABLES */
+/* WHERL COLOR VARIABLES */
+/* WHERL DIMENSION VARIABLES */
+/* WHERL COLOR VARIABLES */
+/* WHERL DIMENSION VARIABLES */
+/* WHERL COLOR VARIABLES */
+/* WHERL DIMENSION VARIABLES */
+/* WHERL COLOR VARIABLES */
+/* WHERL DIMENSION VARIABLES */
+/* WHERL COLOR VARIABLES */
+/* WHERL DIMENSION VARIABLES */
+/* WHERL COLOR VARIABLES */
+/* WHERL DIMENSION VARIABLES */
+/* WHERL COLOR VARIABLES */
+/* WHERL DIMENSION VARIABLES */
+/* WHERL COLOR VARIABLES */
+/* WHERL DIMENSION VARIABLES */
+/* WHERL COLOR VARIABLES */
+/* WHERL DIMENSION VARIABLES */
+/* WHERL COLOR VARIABLES */
+/* WHERL DIMENSION VARIABLES */
+/* WHERL COLOR VARIABLES */
+/* WHERL DIMENSION VARIABLES */
+/* WHERL COLOR VARIABLES */
+/* WHERL DIMENSION VARIABLES */
+/* WHERL COLOR VARIABLES */
+/* WHERL DIMENSION VARIABLES */
+/* WHERL COLOR VARIABLES */
+/* WHERL DIMENSION VARIABLES */
+/* WHERL COLOR VARIABLES */
+/* WHERL DIMENSION VARIABLES */
+/* WHERL COLOR VARIABLES */
+/* WHERL DIMENSION VARIABLES */
+/* WHERL COLOR VARIABLES */
+/* WHERL DIMENSION VARIABLES */
+/* WHERL COLOR VARIABLES */
+/* WHERL DIMENSION VARIABLES */
+/* WHERL COLOR VARIABLES */
+/* WHERL DIMENSION VARIABLES */
+/* WHERL COLOR VARIABLES */
+/* WHERL DIMENSION VARIABLES */
+/* WHERL COLOR VARIABLES */
+/* WHERL DIMENSION VARIABLES */
 /* small displays */
 @media only screen {
   .show-for-small-only, .show-for-small-up, .show-for-small, .show-for-small-down, .hide-for-medium-only, .hide-for-medium-up, .hide-for-medium, .show-for-medium-down, .hide-for-large-only, .hide-for-large-up, .hide-for-large, .show-for-large-down, .hide-for-xlarge-only, .hide-for-xlarge-up, .hide-for-xlarge, .show-for-xlarge-down, .hide-for-xxlarge-only, .hide-for-xxlarge-up, .hide-for-xxlarge, .show-for-xxlarge-down {
@@ -818,6 +910,8 @@ th.hide-for-touch {
 
   th.show-for-print {
     display: table-cell !important; } }
+/* WHERL COLOR VARIABLES */
+/* WHERL DIMENSION VARIABLES */
 /*
 SMALL (BASE) SIZE
 These are the small/base styles. It's what people see on their phones. If
@@ -927,15 +1021,6 @@ NAVIGATION STYLES
   .off-canvas-list ul .dropdown {
     margin-left: 20px; }
 
-.findings-authors li:after {
-  content: ' -'; }
-
-li:last-child:after {
-  content: ''; }
-
-li.findings-type:after {
-  content: ''; }
-
 ul.findings-downloads {
   list-style-type: none;
   margin-left: 0;
@@ -950,6 +1035,108 @@ ul.findings-downloads {
       transition: 350ms; }
       ul.findings-downloads li a:hover, ul.findings-downloads li a:focus {
         background: #666 !important; }
+
+/*********************
+FINDINGS + SEARCH PAGE
+*********************/
+#details h5 {
+  text-transform: uppercase;
+  text-decoration: underline; }
+
+.single-finding article p {
+  font-size: 1.2em; }
+
+#pubDetails {
+  margin-bottom: 1.6em; }
+
+a#moreInfo {
+  border: 1px solid teal;
+  border-radius: 2px;
+  margin: 0 5px;
+  padding: 0 5px; }
+
+a.details {
+  background: #2f8888;
+  position: absolute;
+  color: #fff !important;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 5px;
+  text-align: center;
+  transition: 350ms; }
+
+a.details:hover {
+  background: #414141 !important; }
+
+.findings {
+  background: rgba(230, 212, 61, 0.75); }
+
+.findings-authors {
+  margin: 1.5em 0em 1.5em 0em;
+  line-height: 1.6em; }
+  .findings-authors h5 {
+    text-decoration: underline;
+    text-transform: uppercase; }
+  .findings-authors li {
+    list-style-type: none;
+    display: inline;
+    margin-right: 2px;
+    padding: 2px 0;
+    font-size: 1.25em;
+    font-weight: bold; }
+    .findings-authors li a {
+      color: #2f8888; }
+
+li.findings-type {
+  color: #666;
+  line-height: 2.5em;
+  text-decoration: underline; }
+
+li.findings-project a {
+  color: #2f8888; }
+
+.archive-findings {
+  margin-top: 1em;
+  box-shadow: 0px 1px 2px 0px #999; }
+  .archive-findings h6 {
+    text-transform: uppercase; }
+  .archive-findings.columns article {
+    height: 550px; }
+
+#related-findings {
+  padding: 0; }
+
+input.wpas-submit {
+  border: none;
+  background: #2f8888;
+  color: #fff;
+  width: 100%;
+  text-transform: uppercase; }
+
+#reset {
+  background: #fff;
+  margin-top: 1em;
+  padding: 5px;
+  text-align: center;
+  text-transform: uppercase; }
+
+#search {
+  background: #2f8888;
+  margin-top: 1em;
+  padding-bottom: 1em; }
+  #search h5 {
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff; }
+
+select {
+  border: none;
+  margin-bottom: 4px; }
+
+/* PAGINATION */
+nav.wp-prev-next ul {
+  list-style-type: none; }
 
 /*********************
 POSTS & CONTENT STYLES
@@ -1377,8 +1564,6 @@ XXLARGE
   Styles apply to 120.063em and up.
 
   ******************************************************************/ }
-/* WHERL COLOR VARIABLES */
-/* WHERL DIMENSION VARIABLES */
 h1, h2, h3, h4, h5, h6, * {
   font-family: 'Open Sans Condensed'; }
 
@@ -1637,74 +1822,6 @@ img.team-logo {
 */
 #team-excerpt {
   padding-top: 3em; }
-
-/* FINDINGS + SEARCH PAGE */
-.findings {
-  background: rgba(230, 212, 61, 0.75); }
-
-.findings-authors {
-  margin: 1.5em 0em 1.5em 0em;
-  line-height: 1em; }
-  .findings-authors h5 {
-    text-decoration: underline;
-    text-transform: uppercase; }
-  .findings-authors li {
-    list-style-type: none;
-    display: inline;
-    margin-right: 2px;
-    padding: 2px 0;
-    font-size: 1.25em;
-    font-weight: bold; }
-    .findings-authors li a {
-      color: #2f8888; }
-
-li.findings-type {
-  color: #666;
-  line-height: 2.5em;
-  text-decoration: underline; }
-
-li.findings-project a {
-  color: #2f8888; }
-
-.archive-findings {
-  margin-top: 1em;
-  box-shadow: 0px 1px 2px 0px #999; }
-  .archive-findings h6 {
-    text-transform: uppercase; }
-
-#related-findings {
-  padding: 0; }
-
-input.wpas-submit {
-  border: none;
-  background: #666;
-  color: #fff;
-  width: 100%;
-  text-transform: uppercase; }
-
-#reset {
-  background: #fff;
-  margin-top: 1em;
-  padding: 5px;
-  text-align: center;
-  text-transform: uppercase; }
-
-#search {
-  background: #2f8888;
-  margin-top: 1em;
-  padding-bottom: 1em; }
-  #search h5 {
-    text-align: center;
-    text-transform: uppercase;
-    color: #fff; }
-
-select {
-  border: none;
-  margin-bottom: 4px; }
-
-/* PAGINATION */
-nav.wp-prev-next ul {
-  list-style-type: none; }
 
 /* PEOPLE PAGES */
 .people {

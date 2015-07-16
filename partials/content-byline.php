@@ -7,15 +7,15 @@
 
 						?>
 						<?php if( $persons ): ?>
-
+                            <div class="blog-author">Authors:
 							<?php foreach( $persons as $person ): ?>
-							<div class="blog-author">
-									by <a href="<?php echo get_permalink( $person->ID ); ?>">
+
+									<a href="<?php echo get_permalink( $person->ID ); ?>">
 										<?php echo get_the_title( $person->ID ); ?>
 									</a>
-                            </div>
-							<?php endforeach; ?>
 
+							<?php endforeach; ?>
+                             </div>
 						<?php endif; ?>
 
 

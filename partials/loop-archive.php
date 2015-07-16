@@ -13,10 +13,10 @@
 
 						?>
 						<?php if( $persons ): ?>
-
+                            Authors:
 							<?php foreach( $persons as $person ): ?>
 
-									by <a href="<?php echo get_permalink( $person->ID ); ?>">
+									 <a href="<?php echo get_permalink( $person->ID ); ?>">
 										<?php echo get_the_title( $person->ID ) . ', '; ?>
 									</a>
 
@@ -31,6 +31,11 @@
 
 
 	<footer class="article-footer">
+         <?php if( get_field('conference_name') ): ?>
+              <?php $date = DateTime::createFromFormat('Ymd', get_field('findings_date'));
+                    $date = ' (' . $date->format('d F Y') . ')'; ?>
+        <p>Presented at <strong><?php echo get_field('conference_name') .  $date ;?></strong></p>
+                            <?php endif; ?>
         <p>This article is posted in: <?php the_category(', '); ?></p>
    	    <?php the_tags(); ?>
 	</footer> <!-- end article footer -->

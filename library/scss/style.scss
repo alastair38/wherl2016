@@ -92,18 +92,6 @@ XXLARGE
 } // end of media query
 
 
-/* WHERL COLOR VARIABLES */
-
-$theme-color:  #2f8888;
-$content-bg: #fff;
-$page-bg: #f2f2f2;
-$text-color: #666;
-
-
-/* WHERL DIMENSION VARIABLES */
-
-$latest-height: 100px;
-
 
 h1, h2, h3, h4, h5, h6, * {
     font-family: 'Open Sans Condensed';
@@ -427,93 +415,6 @@ img.team-logo {
     padding-top: 3em;
 }
 
-/* FINDINGS + SEARCH PAGE */
-
-.findings {
-    background: rgba(230, 212, 61, 0.75);
-}
-
-.findings-authors {
-    margin: 1.5em 0em 1.5em 0em;
-    line-height: 1em;
-    h5 {
-        text-decoration: underline;
-        text-transform: uppercase;
-    }
-    & li {
-    list-style-type: none;
-    display: inline;
-    margin-right: 2px;
-    padding: 2px 0;
-    font-size: 1.25em;
-    font-weight: bold;
-    & a {
-        color: $theme-color;
-    }
-    }
-}
-
-li.findings-type {
-    color: $text-color;;
-    line-height: 2.5em;
-    text-decoration: underline;
-}
-
-li.findings-project {
-    & a {
-        color: $theme-color;
-    }
-}
-
-.archive-findings {
-    margin-top: 1em;
-    box-shadow: 0px 1px 2px 0px #999;
-    & h6 {
-        text-transform: uppercase;
-    }
-}
-
-#related-findings {
-    padding: 0;
-}
-
-input.wpas-submit {
-    border: none;
-    background: $text-color;
-    color: $content-bg;
-    width: 100%;
-    text-transform: uppercase;
-}
-
-#reset {
-    background: $content-bg;
-    margin-top: 1em;
-    padding: 5px;
-    text-align: center;
-    text-transform: uppercase;
-}
-
-#search {
-    background: $theme-color;
-    margin-top: 1em;
-    padding-bottom: 1em;
-    & h5 {
-        text-align: center;
-        text-transform: uppercase;
-        color: $content-bg;
-    }
-}
-
-select {
-    border: none;
-    margin-bottom: 4px;
-}
-
-/* PAGINATION */
-
-nav.wp-prev-next ul {
-    list-style-type: none;
-}
 
 /* PEOPLE PAGES */
 

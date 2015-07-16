@@ -6,44 +6,6 @@
 
 if(function_exists("register_field_group"))
 {
-
-	register_field_group(array (
-		'id' => 'acf_category',
-		'title' => 'What type of finding are you submitting?',
-		'fields' => array (
-			array (
-				'key' => 'field_5447cc0bf4e08',
-				'label' => 'Finding Type',
-				'name' => 'finding_type',
-				'type' => 'checkbox',
-				'choices' => array (
-					'Policy Outputs' => 'Policy Outputs',
-					'Presentations' => 'Presentations',
-					'Publications' => 'Publications',
-				),
-				'default_value' => '',
-				'layout' => 'vertical',
-			),
-		),
-		'location' => array (
-			array (
-				array (
-					'param' => 'taxonomy',
-					'operator' => '==',
-					'value' => '1',
-					'order_no' => 0,
-					'group_no' => 0,
-				),
-			),
-		),
-		'options' => array (
-			'position' => 'acf_after_title',
-			'layout' => 'default',
-			'hide_on_screen' => array (
-			),
-		),
-		'menu_order' => 0,
-	));
 	register_field_group(array (
 		'id' => 'acf_event-dates',
 		'title' => 'Conference/Event Date',
@@ -364,30 +326,21 @@ if(function_exists("register_field_group"))
 
     register_field_group(array (
 		'id' => 'acf_where-was-this-presented',
-		'title' => 'Where and when was this presented?',
+		'title' => 'Where was this presented?',
 		'fields' => array (
 			array (
 				'key' => 'field_5591c20dd777d',
 				'label' => 'Conference Name',
 				'name' => 'conference_name',
 				'type' => 'text',
-                'instructions' => 'If you are submitting a <strong>Finding</strong> that was presented at an event, make sure to assign this to the <strong>Event</strong> category as well. This will give you access to other necessary fields',
 				'default_value' => '',
-				'placeholder' => 'Please give the name of the event/conference proceeding',
+				'placeholder' => 'Please give the name of the event/conference proceeding where the finding was presented',
 				'prepend' => '',
 				'append' => '',
 				'formatting' => 'none',
 				'maxlength' => '',
 			),
-            array (
-				'key' => 'field_5580567789f6a',
-				'label' => 'Date of presentation',
-				'name' => 'findings_date',
-				'type' => 'date_picker',
-				'date_format' => 'yymmdd',
-				'display_format' => 'dd/mm/yy',
-				'first_day' => 1,
-			),
+
 		),
 		'location' => array (
 			array (
@@ -414,6 +367,515 @@ if(function_exists("register_field_group"))
 			),
 		),
 		'menu_order' => 2,
+	));
+    register_field_group(array (
+		'id' => 'acf_date-submitted',
+		'title' => 'Date finding was presented/submitted?',
+		'fields' => array (
+            array (
+				'key' => 'field_5580567789f6a',
+				'label' => 'Pick date',
+				'name' => 'findings_date',
+				'type' => 'date_picker',
+				'date_format' => 'yymmdd',
+				'display_format' => 'dd/mm/yy',
+				'first_day' => 1,
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'taxonomy',
+					'operator' => '==',
+					'value' => '31',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'acf_after_title',
+			'layout' => 'default',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 1,
+	));
+	register_field_group(array (
+		'id' => 'acf_policy-output-details',
+		'title' => 'Policy Output Details',
+		'fields' => array (
+			array (
+				'key' => 'field_5591dfcf08e55',
+				'label' => 'Date of Publication',
+				'name' => 'date_of_publication',
+				'type' => 'date_picker',
+				'date_format' => 'yymmdd',
+				'display_format' => 'dd/mm/yy',
+				'first_day' => 1,
+			),
+			array (
+				'key' => 'field_5591dfab08e54',
+				'label' => 'Publisher',
+				'name' => 'published_by',
+				'type' => 'text',
+				'default_value' => '',
+				'placeholder' => 'Published by?',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'none',
+				'maxlength' => '',
+			),
+			array (
+				'key' => 'field_5591dffe08e56',
+				'label' => 'Place of Publication',
+				'name' => 'place_of_publication',
+				'type' => 'text',
+				'default_value' => '',
+				'placeholder' => 'Place of publication (City, Country)',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'none',
+				'maxlength' => '',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'taxonomy',
+					'operator' => '==',
+					'value' => '3',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'acf_after_title',
+			'layout' => 'default',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 0,
+	));
+	register_field_group(array (
+		'id' => 'acf_publications-details',
+		'title' => 'Publications Details',
+		'fields' => array (
+			array (
+				'key' => 'field_5591d70147f81',
+				'label' => 'Publication Type',
+				'name' => 'publication_type',
+				'type' => 'select',
+				'required' => 1,
+				'choices' => array (
+					'Book' => 'Book',
+					'Book Chapter' => 'Book Chapter',
+					'Edited Book' => 'Edited Book',
+					'Journal Article' => 'Journal Article',
+				),
+				'default_value' => '',
+				'allow_null' => 1,
+				'multiple' => 0,
+			),
+			array (
+				'key' => 'field_5591d76147f82',
+				'label' => 'Year of Publication',
+				'name' => 'year',
+				'type' => 'text',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_5591d70147f81',
+							'operator' => '==',
+							'value' => 'Book',
+						),
+						array (
+							'field' => 'field_5591d70147f81',
+							'operator' => '==',
+							'value' => 'Journal Article',
+						),
+						array (
+							'field' => 'field_5591d70147f81',
+							'operator' => '==',
+							'value' => 'Edited Book',
+						),
+						array (
+							'field' => 'field_5591d70147f81',
+							'operator' => '==',
+							'value' => 'Book Chapter',
+						),
+					),
+					'allorany' => 'any',
+				),
+				'default_value' => '',
+				'placeholder' => 'What year was this published?',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'none',
+				'maxlength' => '',
+			),
+			array (
+				'key' => 'field_5591d831f86bb',
+				'label' => 'Publisher',
+				'name' => 'publisher',
+				'type' => 'text',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_5591d70147f81',
+							'operator' => '==',
+							'value' => 'Book',
+						),
+						array (
+							'field' => 'field_5591d70147f81',
+							'operator' => '==',
+							'value' => 'Book Chapter',
+						),
+						array (
+							'field' => 'field_5591d70147f81',
+							'operator' => '==',
+							'value' => 'Edited Book',
+						),
+						array (
+							'field' => 'field_5591d70147f81',
+							'operator' => '==',
+							'value' => 'Journal Article',
+						),
+					),
+					'allorany' => 'any',
+				),
+				'default_value' => '',
+				'placeholder' => 'Enter the publisher name',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'none',
+				'maxlength' => '',
+			),
+			array (
+				'key' => 'field_5591d929717de',
+				'label' => 'Book Title',
+				'name' => 'book_title',
+				'type' => 'text',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_5591d70147f81',
+							'operator' => '==',
+							'value' => 'Book Chapter',
+						),
+					),
+					'allorany' => 'all',
+				),
+				'default_value' => '',
+				'placeholder' => 'Enter the title of the book your chapter appeared in',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'none',
+				'maxlength' => '',
+			),
+			array (
+				'key' => 'field_5591d8c5717dd',
+				'label' => 'List of Editors',
+				'name' => 'editors',
+				'type' => 'text',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_5591d70147f81',
+							'operator' => '==',
+							'value' => 'Book Chapter',
+						),
+					),
+					'allorany' => 'all',
+				),
+				'default_value' => '',
+				'placeholder' => 'List the editors of the book your chapter appeared in',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'none',
+				'maxlength' => '',
+			),
+			array (
+				'key' => 'field_5591d97757f7f',
+				'label' => 'Journal Name',
+				'name' => 'journal_name',
+				'type' => 'text',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_5591d70147f81',
+							'operator' => '==',
+							'value' => 'Journal Article',
+						),
+					),
+					'allorany' => 'all',
+				),
+				'default_value' => '',
+				'placeholder' => 'Add the name of the journal your article appeared in',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'none',
+				'maxlength' => '',
+			),
+			array (
+				'key' => 'field_5591d99b57f80',
+				'label' => 'Journal Volume',
+				'name' => 'volume',
+				'type' => 'text',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_5591d70147f81',
+							'operator' => '==',
+							'value' => 'Journal Article',
+						),
+					),
+					'allorany' => 'all',
+				),
+				'default_value' => '',
+				'placeholder' => 'Add the journal volume your article appeared in',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'none',
+				'maxlength' => '',
+			),
+			array (
+				'key' => 'field_5591d9bb57f81',
+				'label' => 'Journal Issue',
+				'name' => 'issue',
+				'type' => 'text',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_5591d70147f81',
+							'operator' => '==',
+							'value' => 'Journal Article',
+						),
+					),
+					'allorany' => 'all',
+				),
+				'default_value' => '',
+				'placeholder' => 'Add the journal issue your article appeared in',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'none',
+				'maxlength' => '',
+			),
+			array (
+				'key' => 'field_5591d9e657f82',
+				'label' => 'Page Numbers',
+				'name' => 'page_numbers',
+				'type' => 'text',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_5591d70147f81',
+							'operator' => '==',
+							'value' => 'Book Chapter',
+						),
+						array (
+							'field' => 'field_5591d70147f81',
+							'operator' => '==',
+							'value' => 'Journal Article',
+						),
+					),
+					'allorany' => 'any',
+				),
+				'default_value' => '',
+				'placeholder' => 'Enter the page numbers of your article',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'none',
+				'maxlength' => '',
+			),
+			array (
+				'key' => 'field_5591daab38405',
+				'label' => 'Publication Link',
+				'name' => 'publication_link',
+				'type' => 'text',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_5591d70147f81',
+							'operator' => '==',
+							'value' => 'Book',
+						),
+						array (
+							'field' => 'field_5591d70147f81',
+							'operator' => '==',
+							'value' => 'Book Chapter',
+						),
+						array (
+							'field' => 'field_5591d70147f81',
+							'operator' => '==',
+							'value' => 'Edited Book',
+						),
+						array (
+							'field' => 'field_5591d70147f81',
+							'operator' => '==',
+							'value' => 'Journal Article',
+						),
+					),
+					'allorany' => 'any',
+				),
+				'default_value' => '',
+				'placeholder' => 'Enter any hyperlink to the publication in question (start with "http://"',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'none',
+				'maxlength' => '',
+			),
+			array (
+				'key' => 'field_5591dafbd8e9d',
+				'label' => 'ISBN',
+				'name' => 'isbn',
+				'type' => 'text',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_5591d70147f81',
+							'operator' => '==',
+							'value' => 'Book',
+						),
+						array (
+							'field' => 'field_5591d70147f81',
+							'operator' => '==',
+							'value' => 'Book Chapter',
+						),
+						array (
+							'field' => 'field_5591d70147f81',
+							'operator' => '==',
+							'value' => 'Edited Book',
+						),
+						array (
+							'field' => 'field_5591d70147f81',
+							'operator' => '==',
+							'value' => 'Journal Article',
+						),
+					),
+					'allorany' => 'any',
+				),
+				'default_value' => '',
+				'placeholder' => 'Enter the ISBN number',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'none',
+				'maxlength' => '',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'taxonomy',
+					'operator' => '==',
+					'value' => '5',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'acf_after_title',
+			'layout' => 'default',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 0,
+	));
+	register_field_group(array (
+		'id' => 'acf_digital-object-identifier-doi-number',
+		'title' => 'Digital Object Identifier (DOI) number',
+		'fields' => array (
+			array (
+				'key' => 'field_5591e037c4964',
+				'label' => 'DOI',
+				'name' => 'doi',
+				'type' => 'text',
+				'default_value' => '',
+				'placeholder' => 'Enter a Digital Object Identifier (DOI) number is one exists',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'none',
+				'maxlength' => '',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'taxonomy',
+					'operator' => '==',
+					'value' => '3',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+			array (
+				array (
+					'param' => 'taxonomy',
+					'operator' => '==',
+					'value' => '5',
+					'order_no' => 0,
+					'group_no' => 1,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'acf_after_title',
+			'layout' => 'default',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 7,
+	));
+    	register_field_group(array (
+		'id' => 'acf_getting-started',
+		'title' => 'Getting Started',
+		'fields' => array (
+			array (
+				'key' => 'field_55a630729685e',
+				'label' => 'Info',
+				'name' => '',
+				'type' => 'message',
+				'message' => '<ol>
+	<li>If adding an <strong>event</strong> (with no presentation of WHERL findings),	select the <strong>EVENT</strong> category from the list on the right-hand side.</li>
+	<li>If adding an <strong>event</strong> where WHERL findings were presented,	select the <strong>EVENT</strong> AND <strong>FINDING</strong> categories.</li>
+	<li>If adding a <strong>Finding</strong> (NOT presented at an event), select the <strong>FINDING</strong> category.</li>
+	<li>Once you have selected your category(ies), complete the form fields that are made available.</li>
+	</ol>
+	NOTE: WHENEVER YOU SELECT THE <strong>FINDING</strong> CATEGORY, PLEASE ENSURE THAT A SUB-CATEGORY IS ALSO CHOSEN: EITHER <strong>POLICY OUTPUTS</strong>; <strong>PRESENTATIONS</strong>; OR <strong>PUBLICATIONS</strong>.
+
+	<a href="mailto:alastair@alastaircox.com" target="_blank">Still stuck? Email Alastair</a>',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'finding',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'acf_after_title',
+			'layout' => 'default',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => -3,
 	));
 }
 

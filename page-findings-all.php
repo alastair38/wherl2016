@@ -24,12 +24,18 @@ $args['wp_query'] = array('post_type' => array('finding'),
                           );
 $args['fields'][] = array(
                   'type' => 'meta_key',
-                  'meta_key' => 'finding_type',
+                  'meta_key' => 'findings_date',
                   'format' => 'select',
-                  'allow_null' => "CHOOSE FINDING TYPE",
-                  'data_type' => 'CHAR',
+                  'allow_null' => "CHOOSE YEAR",
+                  'data_type' => 'DATE',
                   'compare' => 'LIKE',
-                  'values' => array( 'policy' => 'Policy Outputs', 'presentations' => 'Presentations', 'publications' => 'Publications'));
+                  'values' => array(  '2014' => '2014', '2015' => '2015', '2016' => '2016', '2017' => '2017',));
+$args['fields'][] = array(
+                  'type' => 'taxonomy',
+                  'taxonomy' => 'findings_categories',
+                  'format' => 'select',
+                  'allow_null' => "CHOOSE TYPE",
+                  'values' => array( 'policy-outputs' => 'Policy Outputs', 'presentations' => 'Presentations', 'publications' => 'Publications'));
 $args['fields'][] = array(
                   'type' => 'meta_key',
                   'meta_key' => 'findings_project',
@@ -69,17 +75,18 @@ $my_search = new WP_Advanced_Search($args);
 
                   <div id="search-page" class="large-12 columns" role="main">
                    <h1 class="page-title"><?php echo 'Findings' ;?></h1>
-                    <div id="search" class="large-4 medium-4 columns " role="aside">
+                    <div id="search" class="row" role="aside">
                     <h5>Filter</h5>
+                    <div class="columns" >
                     <?php $my_search->the_form(); ?>
-
+                     </div>
 
 
                     </div>
 
 
 
-					<div id="search-results" class="large-8 medium-8 columns first clearfix" role="main">
+					<div id="search-results" class="large-12 medium-8 columns clearfix" role="main">
 
 						<?php
 
@@ -91,6 +98,8 @@ $wp_query = $my_search->query();?>
 <?php
 if ( have_posts() ):
     while ( have_posts() ): the_post(); ?>
+
+
 
 <?php get_template_part( 'partials/loop', 'findings-search' ); ?>
 
