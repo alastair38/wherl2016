@@ -321,7 +321,7 @@ if(function_exists("register_field_group"))
 			'hide_on_screen' => array (
 			),
 		),
-		'menu_order' => 0,
+		'menu_order' => -4,
 	));
 
     register_field_group(array (
@@ -399,7 +399,7 @@ if(function_exists("register_field_group"))
 			'hide_on_screen' => array (
 			),
 		),
-		'menu_order' => 1,
+		'menu_order' => -3,
 	));
 	register_field_group(array (
 		'id' => 'acf_policy-output-details',
@@ -456,7 +456,7 @@ if(function_exists("register_field_group"))
 			'hide_on_screen' => array (
 			),
 		),
-		'menu_order' => 0,
+		'menu_order' => -2,
 	));
 	register_field_group(array (
 		'id' => 'acf_publications-details',
@@ -791,7 +791,7 @@ if(function_exists("register_field_group"))
 			'hide_on_screen' => array (
 			),
 		),
-		'menu_order' => 0,
+		'menu_order' => -1,
 	));
 	register_field_group(array (
 		'id' => 'acf_digital-object-identifier-doi-number',
@@ -836,7 +836,7 @@ if(function_exists("register_field_group"))
 			'hide_on_screen' => array (
 			),
 		),
-		'menu_order' => 7,
+		'menu_order' => 0,
 	));
     	register_field_group(array (
 		'id' => 'acf_getting-started',
