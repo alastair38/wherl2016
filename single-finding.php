@@ -126,7 +126,7 @@ if ($location['lng']){
                              <p>[Additional Authors: <?php the_field( 'additional_authors' ); ?>]</p>
                             <?php endif; ?>
 
-
+<hr>
 <!-- Get the projects assigned to the finding -->
 
                              <?php $projects = get_field('findings_project');
@@ -147,11 +147,12 @@ if ($location['lng']){
       <?php echo rtrim($projectstr, ', '); ?>
 
 
-
+         </ul>
+                            <hr>
 
                   <?php endif; ?>
 
-                                     </ul>
+
                <?php if (has_term( 'policy-outputs', 'findings_categories' )) {
                             echo '<div id="policyDetails"><h5>Publication Details</h5>';
                             if( get_field('date_of_publication') ) {
@@ -163,7 +164,7 @@ if ($location['lng']){
                             if( $published ) {
                             echo ' by ' . $published . $publishedLoc . '</p>';
                             }
-                            echo '</div>';
+                            echo '</div><hr>';
                                  }?>
 
             <?php if (has_term( 'publications', 'findings_categories' )) {
@@ -213,7 +214,7 @@ if ($location['lng']){
                             if( $editors ) {
                             echo '<p>Editors: ' . $editors . '</p>';
                             }
-                           echo '</div>';
+                           echo '</div><hr>';
                                  }?>
 
             <?php if( get_field('conference_name') ): ?>

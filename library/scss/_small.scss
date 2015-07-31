@@ -187,7 +187,6 @@ FINDINGS + SEARCH PAGE
 
 #details h5 {
     text-transform: uppercase;
-    text-decoration: underline;
 }
 
 .single-finding article p {
@@ -196,10 +195,15 @@ FINDINGS + SEARCH PAGE
 
 #pubDetails {
     margin-bottom: 1.6em;
+    span a:hover {
+        background: $theme-color;
+        color: #fff;
+        text-decoration: none;
+    }
 }
 
 a#moreInfo {
-    border: 1px solid teal;
+    border: 1px solid $theme-color;
     border-radius: 2px;
     margin: 0 5px;
     padding: 0 5px;
@@ -229,7 +233,6 @@ a.details:hover {
     margin: 1.5em 0em 1.5em 0em;
     line-height: 1.6em;
     h5 {
-        text-decoration: underline;
         text-transform: uppercase;
     }
     & li {
@@ -274,7 +277,7 @@ li.findings-project {
 
 input.wpas-submit {
     border: none;
-    background: $theme-color;
+    background: #666;
     color: $content-bg;
     width: 100%;
     text-transform: uppercase;
@@ -292,6 +295,13 @@ input.wpas-submit {
     background: $theme-color;
     margin-top: 1em;
     padding-bottom: 1em;
+    height: 590px;
+    p {
+        background: #fff;
+        padding: 1em;
+        margin: 2em 0;
+        font-size: 1.25em;
+    }
     & h5 {
         text-align: center;
         text-transform: uppercase;

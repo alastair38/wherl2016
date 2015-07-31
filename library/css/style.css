@@ -1040,17 +1040,20 @@ ul.findings-downloads {
 FINDINGS + SEARCH PAGE
 *********************/
 #details h5 {
-  text-transform: uppercase;
-  text-decoration: underline; }
+  text-transform: uppercase; }
 
 .single-finding article p {
   font-size: 1.2em; }
 
 #pubDetails {
   margin-bottom: 1.6em; }
+  #pubDetails span a:hover {
+    background: #2f8888;
+    color: #fff;
+    text-decoration: none; }
 
 a#moreInfo {
-  border: 1px solid teal;
+  border: 1px solid #2f8888;
   border-radius: 2px;
   margin: 0 5px;
   padding: 0 5px; }
@@ -1076,7 +1079,6 @@ a.details:hover {
   margin: 1.5em 0em 1.5em 0em;
   line-height: 1.6em; }
   .findings-authors h5 {
-    text-decoration: underline;
     text-transform: uppercase; }
   .findings-authors li {
     list-style-type: none;
@@ -1109,7 +1111,7 @@ li.findings-project a {
 
 input.wpas-submit {
   border: none;
-  background: #2f8888;
+  background: #666;
   color: #fff;
   width: 100%;
   text-transform: uppercase; }
@@ -1124,7 +1126,13 @@ input.wpas-submit {
 #search {
   background: #2f8888;
   margin-top: 1em;
-  padding-bottom: 1em; }
+  padding-bottom: 1em;
+  height: 590px; }
+  #search p {
+    background: #fff;
+    padding: 1em;
+    margin: 2em 0;
+    font-size: 1.25em; }
   #search h5 {
     text-align: center;
     text-transform: uppercase;

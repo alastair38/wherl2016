@@ -1,5 +1,5 @@
 
-<div class="large-6 medium-6 columns clearfix">
+<div class="large-6 medium-6 columns clearfix end">
 
      <div class="archive-findings columns">
     <article id="post-<?php the_ID(); ?>" class="columns" role="article">

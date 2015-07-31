@@ -75,18 +75,19 @@ $my_search = new WP_Advanced_Search($args);
 
                   <div id="search-page" class="large-12 columns" role="main">
                    <h1 class="page-title"><?php echo 'Findings' ;?></h1>
-                    <div id="search" class="row" role="aside">
-                    <h5>Filter</h5>
-                    <div class="columns" >
-                    <?php $my_search->the_form(); ?>
-                     </div>
 
-
-                    </div>
 
 
 
 					<div id="search-results" class="large-12 medium-8 columns clearfix" role="main">
+                        <div class="large-6 medium-6 columns clearfix">
+
+                            <div id="search"  class="archive-findings columns">
+                                <h5>Filter</h5>
+                                 <?php $my_search->the_form(); ?>
+                                <p>You can filter the findings by year, type, project or author. Alternatively, you can search for a keyword (which must appear in the title of the finding).</p>
+                            </div>
+                        </div>
 
 						<?php
 
