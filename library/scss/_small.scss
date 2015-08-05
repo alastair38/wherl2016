@@ -175,6 +175,7 @@ ul.findings-downloads {
     transition: 350ms;
     &:hover, &:focus {
         background: #666 !important;
+        text-decoration: none !important;
     }
     }
         }
@@ -184,6 +185,23 @@ ul.findings-downloads {
 /*********************
 FINDINGS + SEARCH PAGE
 *********************/
+
+a.post-edit-link {
+    display: block;
+    text-align: center;
+    border: 1px solid $theme-color;
+    border-radius: 2px;
+    margin: 0 5px;
+    padding: 0 5px;
+    transition: 350ms;
+}
+
+a.post-edit-link:hover,
+a.post-edit-link:focus {
+        background: $theme-color !important;
+        color: #fff !important;
+        text-decoration: none !important;
+    }
 
 #details h5 {
     text-transform: uppercase;

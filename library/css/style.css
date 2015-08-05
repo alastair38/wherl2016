@@ -1034,11 +1034,27 @@ ul.findings-downloads {
       display: block;
       transition: 350ms; }
       ul.findings-downloads li a:hover, ul.findings-downloads li a:focus {
-        background: #666 !important; }
+        background: #666 !important;
+        text-decoration: none !important; }
 
 /*********************
 FINDINGS + SEARCH PAGE
 *********************/
+a.post-edit-link {
+  display: block;
+  text-align: center;
+  border: 1px solid #2f8888;
+  border-radius: 2px;
+  margin: 0 5px;
+  padding: 0 5px;
+  transition: 350ms; }
+
+a.post-edit-link:hover,
+a.post-edit-link:focus {
+  background: #2f8888 !important;
+  color: #fff !important;
+  text-decoration: none !important; }
+
 #details h5 {
   text-transform: uppercase; }
 

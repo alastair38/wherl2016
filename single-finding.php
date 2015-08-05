@@ -22,9 +22,11 @@
                             <div class="large-7 medium-9 small-12 columns">
                             <article>
                             <h1 class="event-title"><?php the_title(); ?></h1>
+                            <?php edit_post_link('Edit this content', '<p>', '</p>'); ?>
+
                             <?php if( get_field('findings_date') ): ?>
                             <p><?php $date = DateTime::createFromFormat('Ymd', get_field('findings_date'));
-echo '<i class="fi-calendar" title="Event Date"></i> ' . $date->format('d F Y') . ' - '; ?>
+echo '<i class="fi-calendar" title="Event Date"></i> ' . $date->format('d F Y'); ?>
                              <?php endif; ?>
 <?php
                                                          global $post;
