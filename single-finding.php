@@ -45,19 +45,19 @@ echo '</p>';
 							 <?php if( get_field('file_upload') ): ?>
                              <h5><strong>Accompanying Files</strong></h5>
                              <li><a href="<?php the_field( 'file_upload' ); ?>" target="_blank" title="Download <?php the_field( 'file_upload' ); ?>">
-										Click to download event details <i class="fi-download"></i>
+										Click to download presentation details <i class="fi-download"></i>
 									</a></li>
                             <?php endif; ?>
 
                             <?php if( get_field('file_uploadb') ): ?>
                              <li><a href="<?php the_field( 'file_uploadb' ); ?>" target="_blank" title="Download <?php the_field( 'file_upload' ); ?>">
-										Click to download event details <i class="fi-download"></i>
+										Click to download presentation details <i class="fi-download"></i>
 									</a></li>
                             <?php endif; ?>
 
                             <?php if( get_field('file_uploadc') ): ?>
                              <li><a href="<?php the_field( 'file_uploadc' ); ?>" target="_blank" title="Download <?php the_field( 'file_upload' ); ?>">
-										Click to download event details <i class="fi-download"></i>
+										Click to download presentation details <i class="fi-download"></i>
 									</a></li>
                             <?php endif; ?>
 
@@ -224,7 +224,7 @@ if ($location['lng']){
                             <?php endif; ?>
 
              <?php if (has_term( 'event', 'findings_categories' )) {?>
-                 <h5>Event Details</h5>
+                 <div id="eventDetails"><h5 class="contact-list">Event Details</h5>
 
                            <?php if( get_field('event_start') ): ?>
                             <?php $date = DateTime::createFromFormat('Ymd', get_field('event_start'));
@@ -243,7 +243,7 @@ echo ' - ' . $date->format('d F Y'); ?>
 } else {
     echo '<p></p>';
 }
- }?>
+ }  echo '</div>';?>
                             <?php if( get_field('event_email') ): ?>
                                 <div class="email"><i class="fi-mail"></i><a href="mailto:<?php the_field('event_email'); ?>" target="_blank">Email</a></div>
                             <?php endif; ?>
@@ -255,7 +255,11 @@ echo ' - ' . $date->format('d F Y'); ?>
                             <?php endif; ?>
                             <?php if( get_field('event_website') ): ?>
                                 <div class="web"><i class="fi-web"></i><a href="<?php the_field('event_website'); ?>" target="_blank">Website</a></div>
-                            <?php endif; ?>
+                                <?php endif; ?>
+
+
+
+
                             <?php
 
 $location = get_field('google_map');

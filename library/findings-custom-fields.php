@@ -68,7 +68,7 @@ if(function_exists("register_field_group"))
 		'fields' => array (
 			array (
 				'key' => 'field_5447a86fd5e7d',
-				'label' => 'First Upload',
+				'label' => 'Upload Presentation',
 				'name' => 'file_upload',
 				'type' => 'file',
 				'save_format' => 'url',
@@ -76,7 +76,7 @@ if(function_exists("register_field_group"))
 			),
 			array (
 				'key' => 'field_5447a9a7b3f20',
-				'label' => 'Second Upload',
+				'label' => 'Upload Publication',
 				'name' => 'file_uploadb',
 				'type' => 'file',
 				'save_format' => 'object',
@@ -84,7 +84,7 @@ if(function_exists("register_field_group"))
 			),
 			array (
 				'key' => 'field_5447a9ceb3f21',
-				'label' => 'Third Upload',
+				'label' => 'Upload Additional File',
 				'name' => 'file_uploadc',
 				'type' => 'file',
 				'save_format' => 'object',
@@ -853,7 +853,11 @@ if(function_exists("register_field_group"))
 	<li>If adding a <strong>Finding</strong> (NOT presented at an event), select the <strong>FINDING</strong> category.</li>
 	<li>Once you have selected your category(ies), complete the form fields that are made available.</li>
 	</ol>
-	NOTE: WHENEVER YOU SELECT THE <strong>FINDING</strong> CATEGORY, PLEASE ENSURE THAT A SUB-CATEGORY IS ALSO CHOSEN: EITHER <strong>POLICY OUTPUTS</strong>; <strong>PRESENTATIONS</strong>; OR <strong>PUBLICATIONS</strong>.
+	<em>NOTE: Whenever you select the <strong>Finding</strong> category, please ensure that a sub-category is also chosen: either <strong>Policy Outputs</strong>; <strong>Presentations</strong>; OR <strong>Publications</strong>.</em>
+    <ul>
+    <li><strong>ADDING A DESCRIPTION</strong></li>
+    <li>To add a description to your submission, please use the text field below the <strong>Add Media</strong> button. This text field allows you to add formatting to the description (such as links, italics etc), which you can see if you select the <strong>Visual</strong> tab at the top right of the field.</li>
+    </ul>
 
 	<a href="mailto:alastair@alastaircox.com" target="_blank">Still stuck? Email Alastair</a>',
 			),
