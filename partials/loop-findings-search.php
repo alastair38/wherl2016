@@ -12,21 +12,9 @@
                             <p><?php $date = DateTime::createFromFormat('Ymd', get_field('findings_date'));
 echo 'Posted on ' . $date->format('d F Y') . ' in '; ?>
                              <?php endif; ?>
-<?php
-                                                         global $post;
-$category_id = get_term_by('slug', 'finding', 'findings_categories');
-
-$terms = get_the_terms($post->ID, 'findings_categories');
-if ($terms) {
-foreach ($terms as $term) {
-    if($term->parent === $category_id->term_id) {
-        echo '<a href="' . get_term_link($term, 'findings_categories') . '">' . $term->name . '</a>, ';
-    }
-}
-echo '</p>';
-};?>
 
 
+<?php echo get_the_term_list( $post->ID, 'findings_categories', ' ', ', ', '' ); ?>
 </header>
 
  <!-- check to see whether the post is categorised as a 'finding'. If so, output findings fields -->
@@ -34,7 +22,6 @@ echo '</p>';
 <?php // if (has_term( 'finding', 'findings_categories' )) {?>
 
  <div id="details" class="columns" style="background: whitesmoke;" >
-     <h3>Quick Overview</h3>
   <ul class="findings-authors">
 
 <!-- Get the child categories of Finding that the post is assigned to eg: Presentations, Policy Output, Publications -->
@@ -137,12 +124,23 @@ echo '</p>';
 
                                  }?>
 
-<?php if( get_field('conference_name') ): ?>
-              <?php $date = DateTime::createFromFormat('Ymd', get_field('findings_date'));
-                    $date = ' (' . $date->format('d F Y') . ')'; ?>
-             <p><em>This finding was presented at the <strong><?php echo get_field('conference_name') .  $date ;?></strong></em></p>
-                            <?php endif; ?>
 
+  <?php $events = get_field('finding_event');
+                            $date = DateTime::createFromFormat('Ymd', get_field('findings_date'));
+                    $date = ' (' . $date->format('d F Y') . ')';
+                                 if( $events ): ?>
+
+
+                 <?php
+                            foreach( $events as $event):
+                            echo '<p><em>This finding was presented at <a href="' . get_permalink( $event ) . '">' . get_the_title( $event ).'</a>' . $date . '</em></p>';
+
+
+                           endforeach;
+      ?>
+
+
+                                <?php endif; ?>
 
                             </div>
 

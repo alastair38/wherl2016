@@ -332,7 +332,7 @@ function wpb_change_title_text( $title ){
      $screen = get_current_screen();
 
      if  ( 'finding' == $screen->post_type ) {
-          $title = 'Enter title of finding or event';
+          $title = 'Enter title of finding';
      }
 
     if  ( 'events' == $screen->post_type ) {

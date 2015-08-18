@@ -6,6 +6,52 @@
 
 if(function_exists("register_field_group"))
 {
+    	register_field_group(array (
+		'id' => 'acf_select-event',
+		'title' => 'Select Event',
+		'fields' => array (
+			array (
+				'key' => 'field_55d1fd4d7525d',
+				'label' => 'Where was this presented?',
+				'name' => 'finding_event',
+                'instructions' => 'If this finding was presented at an event, please choose the event from the list below. To appear on this list, an event has to have been added to the <em>Events</em> section of the website already',
+				'type' => 'relationship',
+				'return_format' => 'object',
+				'post_type' => array (
+					0 => 'events',
+				),
+				'taxonomy' => array (
+					0 => 'all',
+				),
+				'filters' => array (
+					0 => 'search',
+				),
+				'result_elements' => array (
+					0 => 'post_type',
+					1 => 'post_title',
+				),
+				'max' => '',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'finding',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'acf_after_title',
+			'layout' => 'default',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 0,
+	));
 	register_field_group(array (
 		'id' => 'acf_event-dates',
 		'title' => 'Conference/Event Date',
@@ -36,7 +82,7 @@ if(function_exists("register_field_group"))
 				'type' => 'text',
 				'instructions' => '',
 				'default_value' => '',
-				'placeholder' => 'Enter start/end time of event (optional)',
+				'placeholder' => 'Enter start/end time of event eg: 10am - 5pm (optional)',
 				'prepend' => '',
 				'append' => '',
 				'formatting' => 'none',
@@ -46,9 +92,9 @@ if(function_exists("register_field_group"))
 		'location' => array (
 			array (
 				array (
-					'param' => 'taxonomy',
+					'param' => 'post_type',
 					'operator' => '==',
-					'value' => '32',
+					'value' => 'events',
 					'order_no' => 0,
 					'group_no' => 0,
 				),
@@ -187,9 +233,9 @@ if(function_exists("register_field_group"))
 			),
             array (
 				array (
-					'param' => 'taxonomy',
+					'param' => 'post_type',
 					'operator' => '==',
-					'value' => '32',
+					'value' => 'events',
 					'order_no' => 0,
 					'group_no' => 1,
 				),
@@ -265,7 +311,7 @@ if(function_exists("register_field_group"))
 				'label' => 'Choose at least one',
 				'name' => 'resource_author',
 				'type' => 'relationship',
-                'instructions' => 'If you are not seeing any other fields, make sure you have selected a Finding sub-category: either Policy Outputs, Presentations or Publications from the <strong>CATEGORIES</strong> list on the right-hand side',
+                'instructions' => 'Choose the author(s) of this finding from the list below',
 				'required' => 1,
 				'return_format' => 'object',
 				'post_type' => array (
@@ -352,9 +398,9 @@ if(function_exists("register_field_group"))
 					'group_no' => 0,
 				),
                 array (
-					'param' => 'taxonomy',
+					'param' => 'post_type',
 					'operator' => '==',
-					'value' => '32',
+					'value' => 'events',
 					'order_no' => 0,
 					'group_no' => 0,
 				),
@@ -848,12 +894,9 @@ if(function_exists("register_field_group"))
 				'name' => '',
 				'type' => 'message',
 				'message' => '<ol>
-	<li>If adding an <strong>event</strong> (with no presentation of WHERL findings),	select the <strong>EVENT</strong> category from the list on the right-hand side.</li>
-	<li>If adding an <strong>event</strong> where WHERL findings were presented,	select the <strong>EVENT</strong> AND <strong>FINDING</strong> categories.</li>
-	<li>If adding a <strong>Finding</strong> (NOT presented at an event), select the <strong>FINDING</strong> category.</li>
+	<li>Please select one or more of the options from the <strong>Categories</strong> list on the right-hand side</li>
 	<li>Once you have selected your category(ies), complete the form fields that are made available.</li>
 	</ol>
-	<em>NOTE: Whenever you select the <strong>Finding</strong> category, please ensure that a sub-category is also chosen: either <strong>Policy Outputs</strong>; <strong>Presentations</strong>; OR <strong>Publications</strong>.</em>
     <ul>
     <li><strong>ADDING A DESCRIPTION</strong></li>
     <li>To add a description to your submission, please use the text field below the <strong>Add Media</strong> button. This text field allows you to add formatting to the description (such as links, italics etc), which you can see if you select the <strong>Visual</strong> tab at the top right of the field.</li>

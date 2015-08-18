@@ -24,38 +24,50 @@ $postid = get_the_ID();
                         <?php if( $user_findings ): ?>
 
 
-                        <div class="large-12 columns clearfix">
-                           <hr>
-                            <h3 class="people-title">Findings</h3>
+                        <div id="related_findings" class="large-12 columns clearfix">
+                            <h4>Presented Findings</h4>
                             <?php foreach( $user_findings as $user_finding): ?>
-                            <div class="large-6 columns">
+
                             <?php $permalink = get_permalink($user_finding->ID);?>
-                            <?php $content = get_post_field('post_excerpt', $user_finding->ID);?>
-                             <h3><?php echo get_the_title( $user_finding->ID ); ?></h3>
-
-                            <p><?php echo $content;?></p>
-
+                            <?php $content = get_post_field('post_content', $user_finding->ID);?>
+                                <h5><a href="<?php echo $permalink; ?>" title="Go to <?php echo get_the_title( $user_finding->ID ); ?>"><?php echo get_the_title( $user_finding->ID ); ?></a></h5>
 
 
                         <?php endforeach; ?>
 
                         <?php endif; ?>
 
-                              </div>
-                                                <div class="large-2 columns">
-                        <?php $types = get_field('finding_type', $user_finding->ID );
-                                 if( $types ): ?>
+                        <ul class="findings-authors">
+
+<!-- Get the child categories of Finding that the post is assigned to eg: Presentations, Policy Output, Publications -->
 
 
-							<?php foreach( $types as $type): ?>
+<!-- Get the authors assigned to the finding -->
+
+                            <?php $authors = get_field('resource_author', $user_finding->ID ); ?>
+
+							<li>Authors: </li>
 
 
-										<?php echo $type; ?>
+							<?php
+                            $authorstr = '';
+                            foreach( $authors as $author):
+                            $authorstr .= '<li><a href="' . get_permalink( $author->ID ) . '">' . get_the_title( $author->ID ).'</a></li>' . ', ';
 
 
-							<?php endforeach; ?>
-                       <?php endif; ?>
-</div>
+                           endforeach;
+      ?>
+
+      <?php echo rtrim($authorstr, ', '); ?>
+
+
+
+
+						<?php // endif; ?>
+
+  </ul>
+
+  <hr>
                         </div>
 
                         <?php wp_reset_postdata();?>

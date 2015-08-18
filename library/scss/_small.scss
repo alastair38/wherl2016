@@ -248,7 +248,7 @@ a.details:hover {
 }
 
 .findings-authors {
-    margin: 1.5em 0em 1.5em 0em;
+    margin: 1em 0em 1em 0em;
     line-height: 1.6em;
     h5 {
         text-transform: uppercase;
@@ -258,8 +258,6 @@ a.details:hover {
     display: inline;
     margin-right: 2px;
     padding: 2px 0;
-    font-size: 1.25em;
-    font-weight: bold;
     & a {
         color: $theme-color;
     }
@@ -339,6 +337,23 @@ nav.wp-prev-next ul {
 }
 
 
+
+#contact {
+    background: $theme-color;
+    text-align: center;
+    color: #fff;
+    .event_details{
+    line-height: 2em;
+    }
+}
+
+#related_findings {
+    background: #f2f2f2;
+    h4 {
+      text-transform: uppercase;
+      text-align: center;
+    }
+}
 
 /*********************
 POSTS & CONTENT STYLES

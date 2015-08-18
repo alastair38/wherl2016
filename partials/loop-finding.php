@@ -63,7 +63,7 @@ $postid = get_the_ID();
 
                             </ul>
 
-                             <h6><?php echo get_the_title( $finding->ID ); ?></h6>
+                             <h6><a href="<?php echo get_permalink( $finding->ID ); ?>" title="View <?php echo get_the_title( $finding->ID ); ?>"><?php echo get_the_title( $finding->ID ); ?></a></h6>
 
                                  </div>
                                   <div class="columns">

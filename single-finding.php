@@ -219,63 +219,29 @@ if ($location['lng']){
                            echo '</div><hr>';
                                  }?>
 
-            <?php if( get_field('conference_name') ): ?>
-              <?php $date = DateTime::createFromFormat('Ymd', get_field('findings_date'));
-                    $date = ' (' . $date->format('d F Y') . ')'; ?>
-                                <h5>Presented at </h5><p><?php echo get_field('conference_name') .  $date ;?></p>
-                            <?php endif; ?>
 
-             <?php if (has_term( 'event', 'findings_categories' )) {?>
-                 <div id="eventDetails"><h5 class="contact-list">Event Details</h5>
+                             <?php $events = get_field('finding_event');
+                            $date = DateTime::createFromFormat('Ymd', get_field('findings_date'));
+                    $date = ' (' . $date->format('d F Y') . ')';
+                                 if( $events ): ?>
 
-                           <?php if( get_field('event_start') ): ?>
-                            <?php $date = DateTime::createFromFormat('Ymd', get_field('event_start'));
-echo '<i class="fi-calendar" title="Event Date"></i> ' . $date->format('d F Y'); ?>
-                            <?php endif; ?>
-                           <?php if( get_field('event_finish') ): ?>
-                            <?php $date = DateTime::createFromFormat('Ymd', get_field('event_finish'));
-echo ' - ' . $date->format('d F Y'); ?>
-                             <?php endif; ?>
+             <ul class="findings-authors"><h5>Presented At</h5>
 
-                             <?php if( get_field('event_address') ): ?>
-                                    <p><i class="fi-marker" title="Event Location"> </i><?php the_field('event_address'); ?></p>
-                                    <?php endif; ?>
-                            <?php if( get_field('event_time') ){
-        echo '<p><i class="fi-clock" title="Event Time"></i> ' . get_field('event_time') . '</p>';
-} else {
-    echo '<p></p>';
-}
- }  echo '</div>';?>
-                            <?php if( get_field('event_email') ): ?>
-                                <div class="email"><i class="fi-mail"></i><a href="mailto:<?php the_field('event_email'); ?>" target="_blank">Email</a></div>
-                            <?php endif; ?>
-                            <?php if( get_field('event_twitter') ): ?>
-                                <div class="twitter"><i class="fi-social-twitter"></i><a href="<?php the_field('event_twitter'); ?>" target="_blank">Twitter</a></div>
-                            <?php endif; ?>
-                            <?php if( get_field('event_phone') ): ?>
-                                <div class="phone"><i class="fi-telephone"></i><?php the_field('event_phone'); ?></div>
-                            <?php endif; ?>
-                            <?php if( get_field('event_website') ): ?>
-                                <div class="web"><i class="fi-web"></i><a href="<?php the_field('event_website'); ?>" target="_blank">Website</a></div>
+
+                 <?php
+                            foreach( $events as $event):
+                            echo '<li><a href="' . get_permalink( $event ) . '">' . get_the_title( $event ).'</a>' . $date . '</li>';
+
+
+                           endforeach;
+      ?>
+
+
+
+         </ul>
                                 <?php endif; ?>
 
 
-
-
-                            <?php
-
-$location = get_field('google_map');
-if ($location ):
-                             ?>
-                                <div class="map">
-                                <a href="http://maps.google.co.uk/maps/place/<?php echo $location['lat']; ?>,<?php echo $location['lng']; ?>/@<?php echo $location['lat']; ?>,<?php echo $location['lng']; ?>,15z" target="_blank" title="View map full screen" class="show-for-large-only"><img src="https://maps.googleapis.com/maps/api/staticmap?zoom=13&size=600x300&scale=2&maptype=roadmap
-          &markers=color:green%7C<?php echo $location['lat']; ?>,<?php echo $location['lng']; ?>"></a>
-
-                             <a href="geo:<?php echo $location['lat']; ?>,<?php echo $location['lng']; ?>;u=35" class="hide-for-large-only"><img src="https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=600x300&scale=2&maptype=roadmap
-          &markers=color:green%7C<?php echo $location['lat']; ?>,<?php echo $location['lng']; ?>"></a>
-
-                             </div>
-<?php endif; ?>
                             </div>
 
                         </div>
