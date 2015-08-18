@@ -418,6 +418,7 @@ function wherlevent_top_right_help_metabox_content() { ?>
 
      <p><a href="https://qsnapnet.com/snaps/82dx0vsjrtivygb?TB_iframe=true&width=600&height=550" class="thickbox">Adding an event!</a></p>
 
+
      <a href="mailto:alastair@alastaircox.com" target="_blank">Still stuck? Email Alastair</a>
 
 <?php }
@@ -452,5 +453,78 @@ function wherlperson_top_right_help_metabox_content() { ?>
 
 <?php }
 add_action( 'add_meta_boxes', 'wherlperson_metabox_top_right' );
+
+add_filter( 'post_updated_messages', 'codex_book_updated_messages' );
+/**
+ * Book update messages.
+ *
+ * See /wp-admin/edit-form-advanced.php
+ *
+ * @param array $messages Existing post update messages.
+ *
+ * @return array Amended post update messages with new CPT update messages.
+ */
+function codex_book_updated_messages( $messages ) {
+	$post             = get_post();
+	$post_type        = get_post_type( 'events' );
+	$post_type_object = get_post_type_object( $post_type );
+    $permalink = get_permalink( $post->ID );
+    $findings_link = admin_url() . 'post-new.php?post_type=finding';
+    $findings_text = sprintf( ' <a href="%s">%s</a>', esc_url( $findings_link ), __( ' CLICK HERE', 'your-plugin-textdomain' ) );
+    $view_link = sprintf( ' <a href="%s">%s</a>', esc_url( $permalink ), __( 'VIEW EVENT', 'your-plugin-textdomain' ) );
+    $sub_finding = $view_link . ' <p>TO SUBMIT A FINDING LINKING TO THIS EVENT <strong>' . $findings_text . '</strong></p>';
+
+	$messages['events'] = array(
+		0  => '', // Unused. Messages start at index 1.
+		1  => __( $sub_finding, 'your-plugin-textdomain' ),
+		2  => __( 'Custom field updated.', 'your-plugin-textdomain' ),
+		3  => __( 'Custom field deleted.', 'your-plugin-textdomain' ),
+		4  => __( $sub_finding, 'your-plugin-textdomain' ),
+		/* translators: %s: date and time of the revision */
+		5  => isset( $_GET['revision'] ) ? sprintf( __( 'Book restored to revision from %s', 'your-plugin-textdomain' ), wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
+		6  => __( $sub_finding, 'your-plugin-textdomain' ),
+		7  => __( $sub_finding, 'your-plugin-textdomain' ),
+		8  => __( $sub_finding, 'your-plugin-textdomain' ),
+		9  => sprintf(
+			__( 'EVENT SCHEDULED FOR: <strong>%1$s</strong>.', 'your-plugin-textdomain' ),
+			// translators: Publish box date format, see http://php.net/date
+			date_i18n( __( 'M j, Y @ G:i', 'your-plugin-textdomain' ), strtotime( $post->post_date ) )
+		),
+		10 => __( 'EVENT DRAFT UPDATED.', 'your-plugin-textdomain' )
+	);
+
+	if ( $post_type_object->publicly_queryable ) {
+		$permalink = get_permalink( $post->ID );
+        $findings_link = admin_url() . 'post-new.php?post_type=finding';
+        $submit_finding = sprintf( ' <a href="%s">%s</a>', esc_url( $findings_link ), __( 'CLICK HERE', 'your-plugin-textdomain' ) );
+		$view_link = sprintf( ' <a href="%s">%s</a>', esc_url( $permalink ), __( 'VIEW EVENT', 'your-plugin-textdomain' ) );
+		$messages[ $post_type ][4] .= $view_link . ' <p>TO SUBMIT A FINDING LINKING TO THIS EVENT <strong>' . $submit_finding . '</strong></p>';
+		$messages[ $post_type ][6] .= $view_link . ' <p>TO SUBMIT A FINDING LINKING TO THIS EVENT <strong>' . $submit_finding . '</strong></p>';
+		$messages[ $post_type ][7] .= $view_link . ' <p>TO SUBMIT A FINDING LINKING TO THIS EVENT <strong>' . $submit_finding . '</strong></p>';
+
+		$preview_permalink = add_query_arg( 'preview', 'true', $permalink );
+		$preview_link = sprintf( ' <a target="_blank" href="%s">%s</a>', esc_url( $preview_permalink ), __( 'PREVIEW EVENT', 'your-plugin-textdomain' ) );
+		$messages[ $post_type ][8]  .= $preview_link;
+		$messages[ $post_type ][10] .= $preview_link;
+	}
+
+	return $messages;
+}
+
+/* OPTION FOR REDIRECTING FROM EVENTS PAGES TO NEW FINDINGS PAGE
+add_filter( 'redirect_post_location', 'wpse_124132_redirect_post_location' );
+
+function wpse_124132_redirect_post_location( $location ) {
+
+
+
+if ( 'events' == get_post_type($_POST['id']) ) {
+        if ( isset( $_POST['save'] ) || isset( $_POST['publish'] ) )
+            return admin_url( "post-new.php?post_type=finding" );
+
+
+    return $location;
+}
+} */
 
 ?>
