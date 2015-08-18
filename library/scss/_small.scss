@@ -348,7 +348,11 @@ nav.wp-prev-next ul {
 }
 
 #related_findings {
-    background: #f2f2f2;
+    article{
+        background: #f2f2f2;
+        padding: 1em;
+        margin-bottom: 1em;
+    }
     h4 {
       text-transform: uppercase;
       text-align: center;

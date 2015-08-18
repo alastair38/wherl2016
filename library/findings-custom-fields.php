@@ -417,6 +417,7 @@ if(function_exists("register_field_group"))
 				'name' => 'findings_date',
 				'type' => 'date_picker',
 				'date_format' => 'yymmdd',
+                'required' => 1,
 				'display_format' => 'dd/mm/yy',
 				'first_day' => 1,
 			),

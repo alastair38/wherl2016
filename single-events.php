@@ -7,7 +7,6 @@
 				<div id="inner-content" class="clearfix">
 
 				    <div id="people" class="large-12 columns" role="main">
-				        <div class="large-12 columns">
 
                 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
@@ -19,7 +18,7 @@
 
 
 
-                            <div class="large-8 columns">
+                            <div class="large-8 medium-6 small-12 columns">
                             <article>
                             <h1 class="event-title"><?php the_title(); ?></h1>
                              <?php edit_post_link('Edit this content', '<p>', '</p>'); ?>
@@ -60,11 +59,12 @@
 
 		<?php get_template_part( 'partials/content', 'share' ); ?>
 
-                              <?php $key = finding_event;?>
-                                 <?php get_template_part( 'partials/loop', 'finding' ); ?>
+
+
                                   </article>
+
                             </div>
-                            <div id="contact" class="large-4 small-12 columns clearfix">
+                            <div id="contact" class="large-4 medium-6 small-12 columns">
 
                             <div class="contact-list">Event Details
 </div>
@@ -107,7 +107,8 @@ echo ' - ' . $date->format('d F Y'); ?>
 </div>
                             </div>
 
-                        </div>
+                 <?php get_template_part( 'partials/loop', 'related_findings' ); ?>
+
 
                     </div><!-- end #main -->
 
