@@ -424,9 +424,9 @@ if(function_exists("register_field_group"))
 		'location' => array (
 			array (
 				array (
-					'param' => 'taxonomy',
+					'param' => 'post_type',
 					'operator' => '==',
-					'value' => '33',
+					'value' => 'finding',
 					'order_no' => 0,
 					'group_no' => 0,
 				),

@@ -61,7 +61,7 @@
 		<?php get_template_part( 'partials/content', 'share' ); ?>
 
                               <?php $key = finding_event;?>
-                                 <?php get_template_part( 'partials/loop', 'findings' ); ?>
+                                 <?php get_template_part( 'partials/loop', 'finding' ); ?>
                                   </article>
                             </div>
                             <div id="contact" class="large-4 small-12 columns clearfix">
