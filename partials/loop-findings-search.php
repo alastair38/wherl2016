@@ -54,7 +54,7 @@ echo 'Posted on ' . $date->format('d F Y') . ' in '; ?>
 
 <!-- Get the projects assigned to the finding -->
 
-                             <?php $projects = get_field('findings_project');
+                             <?php $projects = get_field('work_project');
                                  if( $projects ): ?>
 
              <ul class="findings-authors"><h5>Wherl Project</h5>

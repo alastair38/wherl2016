@@ -277,15 +277,6 @@ if(function_exists("register_field_group"))
 		'location' => array (
 			array (
 				array (
-					'param' => 'taxonomy',
-					'operator' => '==',
-					'value' => '33',
-					'order_no' => 0,
-					'group_no' => 0,
-				),
-			),
-			array (
-				array (
 					'param' => 'page_parent',
 					'operator' => '==',
 					'value' => '26',
@@ -295,12 +286,12 @@ if(function_exists("register_field_group"))
 			),
 		),
 		'options' => array (
-			'position' => 'normal',
+			'position' => 'acf_after_title',
 			'layout' => 'default',
 			'hide_on_screen' => array (
 			),
 		),
-		'menu_order' => 10,
+		'menu_order' => -3,
 	));
 	register_field_group(array (
 		'id' => 'acf_submitted-by',
@@ -353,9 +344,9 @@ if(function_exists("register_field_group"))
 			),
 			array (
 				array (
-					'param' => 'taxonomy',
+					'param' => 'post_type',
 					'operator' => '==',
-					'value' => '33',
+					'value' => 'finding',
 					'order_no' => 0,
 					'group_no' => 1,
 				),
@@ -370,7 +361,7 @@ if(function_exists("register_field_group"))
 		'menu_order' => -4,
 	));
 
-    register_field_group(array (
+   /** register_field_group(array (
 		'id' => 'acf_where-was-this-presented',
 		'title' => 'Where was this presented?',
 		'fields' => array (
@@ -413,7 +404,9 @@ if(function_exists("register_field_group"))
 			),
 		),
 		'menu_order' => 2,
-	));
+	));***/
+
+
     register_field_group(array (
 		'id' => 'acf_date-submitted',
 		'title' => 'Date finding was presented/submitted?',

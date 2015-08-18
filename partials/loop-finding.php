@@ -67,7 +67,7 @@ $postid = get_the_ID();
 
                                  </div>
                                   <div class="columns">
-                                <?php $projects = get_field('findings_project', $finding->ID);
+                                <?php $projects = get_field('work_project', $finding->ID);
                                  if( $projects ): ?>
 
 							<ul class="findings-authors"><span>Assigned to</span>
