@@ -757,7 +757,17 @@ form#mc4wp-form-1 h5 {
     padding: 0px 3px;
 }
 
-#contact a {
+#news-contact .fi-mail,
+#news-contact .fi-social-twitter,
+#news-contact .fi-telephone,
+#news-contact .fi-mobile,
+#news-contact .fi-web,
+#news-contact .fi-social-linkedin {
+    padding: 0px 3px;
+}
+
+#contact a,
+#news-contact a {
     color: $content-bg;
 }
 
