@@ -155,7 +155,16 @@ if(function_exists("register_field_group"))
 				array (
 					'param' => 'taxonomy',
 					'operator' => '==',
-					'value' => '33',
+					'value' => '26',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+            array (
+				array (
+					'param' => 'taxonomy',
+					'operator' => '==',
+					'value' => '25',
 					'order_no' => 0,
 					'group_no' => 0,
 				),
@@ -164,7 +173,7 @@ if(function_exists("register_field_group"))
 				array (
 					'param' => 'taxonomy',
 					'operator' => '==',
-					'value' => '32',
+					'value' => '24',
 					'order_no' => 0,
 					'group_no' => 1,
 				),
@@ -215,22 +224,6 @@ if(function_exists("register_field_group"))
 			),
 		),
 		'location' => array (
-			array (
-				array (
-					'param' => 'taxonomy',
-					'operator' => '==',
-					'value' => '32',
-					'order_no' => 1,
-					'group_no' => 0,
-				),
-                array (
-					'param' => 'taxonomy',
-					'operator' => '==',
-					'value' => '33',
-					'order_no' => 0,
-					'group_no' => 0,
-				),
-			),
             array (
 				array (
 					'param' => 'post_type',
@@ -484,7 +477,7 @@ if(function_exists("register_field_group"))
 				array (
 					'param' => 'taxonomy',
 					'operator' => '==',
-					'value' => '34',
+					'value' => '26',
 					'order_no' => 0,
 					'group_no' => 0,
 				),
@@ -819,7 +812,7 @@ if(function_exists("register_field_group"))
 				array (
 					'param' => 'taxonomy',
 					'operator' => '==',
-					'value' => '36',
+					'value' => '26',
 					'order_no' => 0,
 					'group_no' => 0,
 				),
@@ -855,7 +848,7 @@ if(function_exists("register_field_group"))
 				array (
 					'param' => 'taxonomy',
 					'operator' => '==',
-					'value' => '34',
+					'value' => '24',
 					'order_no' => 0,
 					'group_no' => 0,
 				),
@@ -864,7 +857,7 @@ if(function_exists("register_field_group"))
 				array (
 					'param' => 'taxonomy',
 					'operator' => '==',
-					'value' => '36',
+					'value' => '26',
 					'order_no' => 0,
 					'group_no' => 1,
 				),
