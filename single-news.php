@@ -58,7 +58,7 @@
 
                 </div>
 
-                            <div id="contact" class="large-3 small-12 columns clearfix">
+                            <div id="news-contact" class="large-3 small-12 columns clearfix">
                           <?php if( get_field('contact_name') ): ?>
                                     <div class="phone">Contact Options</div>
                                     <?php endif; ?>

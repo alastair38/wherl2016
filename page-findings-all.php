@@ -51,7 +51,7 @@ $args['fields'][] = array(
                   'allow_null' => "CHOOSE AUTHOR",
                   'data_type' => 'CHAR',
                   'compare' => 'LIKE',
-                  'values' => array( '108' => 'John Adams', '103' => 'Chris Brooks', '105' => 'Nicholas Campbell', '63' => 'Dr Laurie Corna', '64' => 'Chris Curry', '107' => 'Mel Duffield', '65' => 'Dr Giorgio Di Gessa', '102' => 'Dr Marcus Green', '66' => 'Professor Karen Glaser', '106' => 'Simon Marlow', '67' => 'Dr Peggy McDonough', '71' => 'Dr Loretta Platts', '109' => 'Shamil Popat', '68' => 'Dr Debora Price', '104' => 'Phil Rossall', '72' => 'Lawrence Sacco', '73' => 'Professor Amanda Sacker', '74' => 'Professor Robert Stewart', '69' => 'Rachel Stutchbury', '70' => 'Dr Diana Worts'));
+                  'values' => array( '108' => 'John Adams', '264' => 'Dr Rebecca Benson', '103' => 'Chris Brooks', '105' => 'Nicholas Campbell', '63' => 'Dr Laurie Corna', '64' => 'Chris Curry', '268' => 'Ignatius De Bidegain', '65' => 'Dr Giorgio Di Gessa', '107' => 'Mel Duffield', '102' => 'Dr Marcus Green', '66' => 'Professor Karen Glaser', '266' => 'Professor Jose Iparraguirre', '267' => 'Sarah Luheshi', '106' => 'Simon Marlow', '67' => 'Dr Peggy McDonough', '330' => 'Tim Pike', '71' => 'Dr Loretta Platts', '265' => 'Dr  Gayan Perera', '109' => 'Shamil Popat', '68' => 'Dr Debora Price', '104' => 'Phil Rossall', '72' => 'Lawrence Sacco', '73' => 'Professor Amanda Sacker', '74' => 'Professor Robert Stewart', '69' => 'Rachel Stutchbury', '70' => 'Dr Diana Worts'));
 $args['fields'][] = array('type' => 'search',
                           'placeholder' => 'Enter search terms here',
                           'title' => 'Search',
