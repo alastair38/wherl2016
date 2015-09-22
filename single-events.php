@@ -64,7 +64,7 @@
                                   </article>
 
                             </div>
-                            <div id="contact" class="large-4 medium-6 small-12 columns">
+                            <div id="event-contact" class="large-4 medium-6 small-12 columns">
 
                             <div class="contact-list">Event Details
 </div>
