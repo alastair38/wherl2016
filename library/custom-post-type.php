@@ -792,7 +792,7 @@ if(function_exists("register_field_group"))
 					'param' => 'post_type',
 					'operator' => '==',
 					'value' => 'finding',
-					'order_no' => 0,
+					'order_no' => 4,
 					'group_no' => 0,
 				),
 			),

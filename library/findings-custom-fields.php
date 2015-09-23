@@ -477,7 +477,7 @@ if(function_exists("register_field_group"))
 				array (
 					'param' => 'taxonomy',
 					'operator' => '==',
-					'value' => '26',
+					'value' => '24',
 					'order_no' => 0,
 					'group_no' => 0,
 				),
