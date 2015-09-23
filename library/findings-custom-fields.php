@@ -32,6 +32,16 @@ if(function_exists("register_field_group"))
 				),
 				'max' => '',
 			),
+            array (
+				'key' => 'field_5580567789f6a',
+				'label' => 'Pick the date your finding was presented',
+				'name' => 'findings_date',
+				'type' => 'date_picker',
+				'date_format' => 'yymmdd',
+                'required' => 1,
+				'display_format' => 'dd/mm/yy',
+				'first_day' => 1,
+			),
 		),
 		'location' => array (
 			array (
@@ -397,7 +407,7 @@ if(function_exists("register_field_group"))
 			),
 		),
 		'menu_order' => 2,
-	));***/
+	));
 
 
     register_field_group(array (
@@ -433,7 +443,8 @@ if(function_exists("register_field_group"))
 			),
 		),
 		'menu_order' => -3,
-	));
+	)); ***/
+
 	register_field_group(array (
 		'id' => 'acf_policy-output-details',
 		'title' => 'Policy Output Details',
