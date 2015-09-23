@@ -1161,11 +1161,13 @@ nav.wp-prev-next ul {
   list-style-type: none; }
 
 #contact {
-  background: #2f8888;
   text-align: center;
   color: #fff; }
   #contact .event_details {
     line-height: 2em; }
+
+#contact .event-details {
+  background: #2f8888; }
 
 #related_findings article {
   background: #f2f2f2;
