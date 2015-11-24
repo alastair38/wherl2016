@@ -45,6 +45,8 @@ function clg_people() {
 			'has_archive' => true, /* you can rename the slug here */
 			'capability_type' => 'post',
 			'hierarchical' => false,
+			'show_in_rest' => true,
+      'rest_controller_class' => 'WP_REST_Posts_Controller',
 			/* the next one is important, it tells what's enabled in the post editor */
 			'supports' => array( 'title', 'thumbnail', 'author')
 	 	) /* end of options */
@@ -87,6 +89,8 @@ function clg_team() {
 			'has_archive' => true, /* you can rename the slug here */
 			'capability_type' => 'post',
 			'hierarchical' => false,
+			'show_in_rest' => true,
+      'rest_controller_class' => 'WP_REST_Posts_Controller',
 			/* the next one is important, it tells what's enabled in the post editor */
 			'supports' => array( 'title', 'excerpt', 'thumbnail')
 	 	) /* end of options */
@@ -129,6 +133,8 @@ function clg_news() {
 			'has_archive' => true, /* you can rename the slug here */
 			'capability_type' => 'post',
 			'hierarchical' => false,
+			'show_in_rest' => true,
+			'rest_controller_class' => 'WP_REST_Posts_Controller',
 			/* the next one is important, it tells what's enabled in the post editor */
 			'supports' => array( 'title', 'editor', 'excerpt', 'thumbnail')
 	 	) /* end of options */
@@ -172,6 +178,8 @@ function clg_events() {
 			'has_archive' => true, /* you can rename the slug here */
 			'capability_type' => 'post',
 			'hierarchical' => false,
+			'show_in_rest' => true,
+			'rest_controller_class' => 'WP_REST_Posts_Controller',
 			/* the next one is important, it tells what's enabled in the post editor */
 			'supports' => array( 'title', 'editor', 'excerpt')
 	 	) /* end of options */
@@ -212,6 +220,8 @@ function clg_findings() {
 			'has_archive' => true, /* you can rename the slug here */
 			'capability_type' => 'post',
 			'hierarchical' => false,
+			'show_in_rest' => true,
+			'rest_controller_class' => 'WP_REST_Posts_Controller',
 			/* the next one is important, it tells what's enabled in the post editor */
 			'supports' => array( 'title', 'editor', 'thumbnail')
 	 	) /* end of options */

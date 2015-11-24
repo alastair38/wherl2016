@@ -527,4 +527,58 @@ if ( 'events' == get_post_type($_POST['id']) ) {
 }
 } */
 
+// Generate the options page to enable users to download a spreadsheet of content
+
+function theme_settings_page()
+{
+    ?>
+	    <div class="wrap">
+	    <h1>Export to CSV</h1>
+
+	        <?php
+	            settings_fields("section");
+	            do_settings_sections("theme-options");
+	        ?>
+
+	    <!-- <h3><?php echo get_site_url() . '/wp-json/wp/v2/finding'; ?></h3> -->
+			<p>This spreadsheet is generated via a third party service provided by <a href="https://json-csv.com/" target="_blank">Json-CSV.com</a></p>
+
+		</div>
+	<?php
+}
+
+add_action('admin_menu', 'add_appearance_menu');
+
+function add_appearance_menu(){
+     add_menu_page( "Settings Panel", "Export", "manage_options", "theme-panel", "theme_settings_page", "dashicons-external", 75);
+}
+
+function display_button_element()
+{
+	?>
+	<form method="post" action="https://json-csv.com" novalidate="novalidate">
+    <input type="hidden" name="u" value="<?php echo get_site_url() . '/wp-json/wp/v2/finding'; ?>">
+    <input type="hidden" name="nestedDataType" value="2">
+    <input type="hidden" name="p" value="indix">
+    <input class="button button-primary" type="submit" value="Download Spreadsheet">
+</form>
+
+    <?php
+}
+
+
+
+function display_theme_panel_fields()
+{
+	add_settings_section("section", "Click on the button to generate a CSV/spreadsheet of Wherl findings content .", null, "theme-options");
+
+	add_settings_field("u", "Findings Content", "display_button_element", "theme-options", "section");
+
+		register_setting("section", "u");
+
+
+}
+
+add_action("admin_init", "display_theme_panel_fields");
+
 ?>
