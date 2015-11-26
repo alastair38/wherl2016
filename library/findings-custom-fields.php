@@ -261,7 +261,7 @@ if(function_exists("register_field_group"))
 				'label' => 'Assign Finding to at least one work package',
 				'name' => 'findings_project',
 				'type' => 'relationship',
-				'return_format' => 'id',
+				'return_format' => 'object',
 				'post_type' => array (
 					0 => 'projects',
 				),

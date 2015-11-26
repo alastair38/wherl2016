@@ -63,7 +63,7 @@ echo 'Posted on ' . $date->format('d F Y') . ' in '; ?>
                  <?php
                             $projectstr = '';
                             foreach( $projects as $project):
-                            $projectstr .= '<li><a href="' . get_permalink( $project ) . '">' . get_the_title( $project ).'</a></li>' . ', ';
+                            $projectstr .= '<li><a href="' . get_permalink( $project->ID ) . '">' . get_the_title( $project->ID ).'</a></li>' . ', ';
 
 
                            endforeach;

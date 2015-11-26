@@ -73,8 +73,8 @@ $postid = get_the_ID();
 							<ul class="findings-authors"><span>Assigned to</span>
 							<?php foreach( $projects as $project): ?>
 
-										<li class="findings-project"><a href="<?php echo get_permalink( $project ); ?>" title="View the <?php echo get_the_title($project  ); ?> project page">
-										<?php echo get_the_title( $project ); ?>
+										<li class="findings-project"><a href="<?php echo get_permalink( $project->ID ); ?>" title="View the <?php echo get_the_title($project->ID  ); ?> project page">
+										<?php echo get_the_title( $project->ID ); ?>
 									</a></li>
 
 							<?php endforeach; ?>

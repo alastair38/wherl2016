@@ -557,7 +557,7 @@ function display_button_element()
 {
 	?>
 	<form method="post" action="https://json-csv.com" novalidate="novalidate">
-    <input type="hidden" name="u" value="<?php echo get_site_url() . '/wp-json/wp/v2/finding'; ?>">
+    <input type="hidden" name="u" value="<?php echo get_site_url() . '/wp-json/wp/v2/finding?per_page=100'; ?>">
     <input type="hidden" name="nestedDataType" value="2">
     <input type="hidden" name="p" value="indix">
     <input class="button button-primary" type="submit" value="Download Spreadsheet">
