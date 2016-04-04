@@ -517,6 +517,7 @@ if(function_exists("register_field_group"))
 					'Book Chapter' => 'Book Chapter',
 					'Edited Book' => 'Edited Book',
 					'Journal Article' => 'Journal Article',
+					'Working Paper' => 'Working Paper',
 				),
 				'default_value' => '',
 				'allow_null' => 1,
