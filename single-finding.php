@@ -52,13 +52,13 @@ echo '</p>';
                             <?php endif; ?>
 
                             <?php if( get_field('file_uploadb') ): ?>
-                             <li><a href="<?php the_field( 'file_uploadb' ); ?>" target="_blank" title="Download <?php the_field( 'file_upload' ); ?>">
+                             <li><a href="<?php the_field( 'file_uploadb' ); ?>" target="_blank" title="Download <?php the_field( 'file_uploadb' ); ?>">
 										Click to download presentation details <i class="fi-download"></i>
 									</a></li>
                             <?php endif; ?>
 
                             <?php if( get_field('file_uploadc') ): ?>
-                             <li><a href="<?php the_field( 'file_uploadc' ); ?>" target="_blank" title="Download <?php the_field( 'file_upload' ); ?>">
+                             <li><a href="<?php the_field( 'file_uploadc' ); ?>" target="_blank" title="Download <?php the_field( 'file_uploadc' ); ?>">
 										Click to download presentation details <i class="fi-download"></i>
 									</a></li>
                             <?php endif; ?>
