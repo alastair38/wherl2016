@@ -135,7 +135,7 @@ if(function_exists("register_field_group"))
 				'label' => 'Upload Publication',
 				'name' => 'file_uploadb',
 				'type' => 'file',
-				'save_format' => 'object',
+				'save_format' => 'url',
 				'library' => 'all',
 			),
 			array (
@@ -143,7 +143,7 @@ if(function_exists("register_field_group"))
 				'label' => 'Upload Additional File',
 				'name' => 'file_uploadc',
 				'type' => 'file',
-				'save_format' => 'object',
+				'save_format' => 'url',
 				'library' => 'all',
 			),
 			array (
