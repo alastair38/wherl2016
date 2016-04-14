@@ -53,7 +53,7 @@ echo '</p>';
 
                             <?php if( get_field('file_uploadb') ): ?>
                              <li><a href="<?php the_field( 'file_uploadb' ); ?>" target="_blank" title="Download <?php the_field( 'file_uploadb' ); ?>">
-										Click to download presentation details <i class="fi-download"></i>
+										Click to download publication details <i class="fi-download"></i>
 									</a></li>
                             <?php endif; ?>
 
