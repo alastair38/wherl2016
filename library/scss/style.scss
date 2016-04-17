@@ -1,0 +1,1030 @@
+/******************************************************************
+
+Stylesheet: Main Stylesheet
+
+Here's where the magic happens. Here, you'll see we are calling in
+the separate media queries. The base mobile goes outside any query
+and is called at the beginning, after that we call the rest
+of the styles inside media queries
+******************************************************************/
+
+
+//
+// IMPORTING STYLES
+//
+
+// import normalize
+@import "../../bower_components/foundation/scss/normalize";
+
+// import mixins
+@import "mixins";
+
+// import foundation overrides
+@import "settings";
+
+// foundation.scss
+@import "../../bower_components/foundation/scss/foundation";
+
+// joints.scss
+@import "joints";
+
+/*
+SMALL (BASE) SIZE
+These are the small/base styles. It's what people see on their phones. If
+you set a great foundation, you won't need to add too many styles in
+the other stylesheets. Remember, keep it light: Speed is Important.
+*/
+
+// styles in small.scss
+@import "small";
+
+
+
+
+/*
+MEDIUM
+*/
+@media only screen and (min-width: 40.063em) {
+
+	// styles in medium.scss
+	@import "medium";
+
+} // end of media query
+
+/*
+LARGE
+This is the average viewing window. So Desktops, Laptops, and
+in general anyone not viewing on a mobile device. Here's where
+you can add resource intensive styles.
+*/
+@media only screen and (min-width: 64.063em) {
+
+	// styles in large.scss
+	@import "large";
+
+
+
+} // end of media query
+
+/*
+XLARGE
+*/
+@media only screen and (min-width: 90.063em) {
+
+
+
+	// styles in xlarge.scss
+	@import "xlarge";
+
+} // end of media query
+
+
+/*
+XXLARGE
+*/
+@media only screen and (min-width: 120.063em) {
+
+
+
+	// styles in xxlarge.scss
+	@import "xxlarge";
+
+} // end of media query
+
+
+
+h1, h2, h3, h4, h5, h6, * {
+    font-family: 'Open Sans Condensed';
+}
+
+/* OVERIDE LINK HOVER FOR MAIN CONTENT SECTION*/
+
+#content a:hover {
+    background: transparent;
+    color: #000;
+    text-decoration: underline;
+}
+
+/* CHANGE TOP-BAR + MAIN-MENU BACKGROUND */
+
+.top-bar,
+#menu-main li a {
+    background: #2f8888;
+}
+
+#menu-main li a:hover {
+    color: #414141;
+}
+
+#menu-main .active li a {
+    background: #2f5353;
+}
+
+/* HOME PAGE + HEADER STYLING */
+
+.home #main {
+    background: url('http://wherl.ac.uk/wp-content/themes/wherl2014/library/images/home.jpg');
+    background-size: cover;
+    height: 450px;
+    margin-bottom: 3em;
+    margin-top: 0;
+    position: relative;
+}
+
+.title a {
+    color: $text-color;
+}
+
+.top-bar-section ul li.active a {
+    background: #49c9c9 !important;
+}
+.tab-bar {
+    background: $content-bg;
+}
+
+.tab-bar .menu-icon span {
+    box-shadow: 0 0px 0 1px #414141,0 7px 0 1px #414141,0 14px 0 1px #414141;
+}
+
+.left-small {
+    border-right: none;
+}
+
+.title-mob img {
+    width: 28px;
+    padding: 0px 5px 5px 0px;
+}
+
+#inner-content {
+    padding: 4em 3em;
+}
+
+.home #container {
+    margin-top: 0;
+    padding: 0;
+}
+
+h1.title {
+    background: url('http://wherl.ac.uk/wp-content/themes/wherl2014/library/images/white-Wherl-Logo.png') no-repeat;
+    background-size: contain;
+    background-position: center center;
+    width: 200px;
+    text-indent: 100%;
+white-space: nowrap;
+overflow: hidden;
+}
+
+.home-links,
+.project,
+.people {
+    padding: .5em;
+    margin: 0em 2em 3em 2em;
+    & h5 {
+        text-align: center;
+        text-transform: uppercase;
+        & a {
+            color: #4e4e4e;
+        }
+    }
+}
+
+.home-links.blog {
+        background: #E38A8A;
+    }
+
+/* HOME + LATEST */
+
+.latest {
+    background: $theme-color;
+    padding: .5em 1em 2em 1em;
+    & h5 {
+    color: $content-bg;
+    text-align: center;
+    text-transform: uppercase;
+    }
+}
+
+.large-4 {
+    position: relative;
+}
+
+.latest-finding,
+.latest-blog,
+.latest-news {
+    background: $content-bg;
+    min-height: $latest-height;
+    margin-bottom: 1em;
+    transition: 1s;
+}
+
+.latest-finding {
+    padding: 2em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.latest-news {
+    padding: 1em 2em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.latest-blog {
+    & img {
+        width: 50%;
+        height: $latest-height;
+    }
+    & h6 {
+        width: 50%;
+        text-transform: uppercase;
+        padding: 1em;
+        position: absolute;
+        top: 0;
+        left: 50%;
+    }
+}
+
+.latest-finding:hover,
+.latest-news:hover,
+.latest-blog:hover {
+    background: rgba(255,255,255,0.75);
+ }
+
+/* SLIDER */
+
+
+
+.slider{
+	width: 100%;
+	height: 400px;
+	overflow: hidden;
+	position: relative;
+}
+
+.slide{
+	width: 100%;
+	top: 0;
+	left: 0;
+	position: absolute;
+}
+
+.slidecontent{
+	position: relative;
+	padding: 45px 5px;
+
+}
+
+.caption {
+     position: absolute;
+     padding:0;
+     bottom: 0;
+     left: 0;
+     top: 0;
+     margin: auto;
+     right: 0;
+     width: 90%;
+    }
+
+.one img {
+        width: 40%;
+        margin: 7% 30%;
+}
+
+.two,
+.three {
+    margin-top: 5em;
+    font-size: 1.5em;
+    line-height: 1.5em;
+    color: $text-color;
+}
+
+
+#slideposition{
+	position: absolute;
+	bottom: 0px;
+}
+
+#slideposition ul{
+	list-style-type: none;
+	padding: 0;
+	margin: auto;
+}
+
+#slideposition ul li.indicator{
+	display: inline-block;
+	height: 10px;
+	width: 10px;
+	background: $text-color;
+	margin: 0px 7px;
+	padding: 0;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+#slideposition ul li.indicator.active{
+	background: lightblue;
+}
+
+.funders {
+    position: absolute;
+    top: 200px;
+    width: 30%;
+    margin-left: 35%;
+}
+
+.funder-one {
+    width: 28%;
+}
+
+.funder-two {
+    width: 54%;
+    margin-left: 18%;
+}
+
+
+
+
+/* FOOTER */
+
+p.source-org.copyright {
+    text-align: center;
+}
+
+/* PROJECT PAGES */
+
+.project {
+        background: rgba(192, 225, 253, 0.75);
+}
+
+.project-findings {
+    padding: 5px;
+}
+
+li.pagenav {
+    list-style-type:none;
+    text-align: center;
+    margin-top: 1.5em;
+}
+
+.project-members {
+    background: $content-bg;
+    margin-top: 1em;
+    box-shadow: 0px 1px 2px 0px $text-color;
+}
+
+ul.team-projects {
+    list-style-type: none;
+    margin-left: 0;
+}
+
+.project-members img.attachment-post-thumbnail.wp-post-image {
+    width: 10%;
+    margin-left: -1em;
+}
+
+#project-team {
+    padding-bottom: 2em;
+}
+
+/* SINGLE TEAM
+
+img.team-logo {
+    width: 12%;
+    position:absolute;
+    top: 0;
+    left: 0;
+}
+
+.postid-50 img.team-logo {
+    width: 15%;
+    position:absolute;
+    top: 0;
+    left: 0;
+}
+
+.postid-53 img.team-logo {
+    width: 100px;
+}
+*/
+
+
+#team-excerpt {
+    padding-top: 3em;
+}
+
+
+/* PEOPLE PAGES */
+
+.people {
+    background: rgba(255, 99, 71, 0.75);
+    position: relative;
+    }
+
+.large-4 .people,
+.large-4 .project {
+    height: 200px;
+}
+
+.people-details {
+    background: $page-bg;
+    padding: 1em;
+    margin-bottom: 2em;
+    height: 250px;
+    & h3 {
+        font-size: 1.25em;
+    }
+}
+
+.people-ac-logo img {
+    position: absolute;
+    bottom: 2%;
+    left: 10%;
+    max-width: 80%
+}
+
+.people-logo img {
+    position: absolute;
+    bottom: 2%;
+    right: 25%;
+    width: 50%
+}
+
+img.team-logo.wp-post-image {
+    width: 30%;
+    margin-left: 35%;
+}
+
+.people-ac-logo.post-52 img,
+.post-53 img{
+    width: 50%;
+    left: 25%;
+}
+
+#people .archive-thumbnail {
+    margin-bottom: 1em;
+}
+
+label {
+    font-size: 1.25em;
+    text-align: center;
+    margin: 15px 18px 15px 0px;
+    background: white;
+    text-transform: uppercase;
+}
+
+#role {
+    font-size: 1.25em;
+    text-transform: uppercase;
+    text-align: center;
+    background: $theme-color;
+    color: white;
+    margin: 15px 18px -1em 0px;
+}
+
+.people-title {
+    font-size: 1.25em;
+    text-transform: uppercase;
+    text-align: center;
+    background: $theme-color;
+    color: white;
+}
+
+#people {
+    border: 1px solid $page-bg;
+    padding: 1em 0;
+}
+
+article .email {
+    margin-bottom: 1em;
+}
+
+.work-details {
+    background: $page-bg;
+    & ul {
+        list-style-type: none;
+        padding: 5px 0px;
+    }
+}
+
+#main a,
+#people a {
+    color: $theme-color;
+}
+
+/*TWITTER WIDGET*/
+
+.tweeting {
+    padding: 3em;
+    & h5 {
+        text-align: center;
+        text-transform: uppercase;
+    }
+}
+
+/* GENERAL ARTICLE STYLING */
+
+#people,
+#search-page,
+#main-people,
+#main-project,
+#single-project,
+#single-team,
+#single-latest {
+    background: white;
+    padding-bottom: 2em;
+    & a {
+        color: $theme-color;
+    }
+}
+
+article {
+    background: white;
+     margin-bottom: 40px;
+    & a {
+        color: $theme-color;
+    }
+}
+
+#content {
+    background: $page-bg
+}
+
+.entry-content {
+    padding: 10px;
+}
+
+.single h1, .page h1, .blog h1, .archive h1 {
+    font-size: 1.75em;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+
+/*BLOG POSTS + BLOG ARCHIVE */
+
+.blog-byline {
+    display: inline-block;
+    padding: 5px 0;
+}
+
+.blog #content,
+.events,
+.news {
+    background: #f0f0f0;
+}
+.blog-article {
+    background: $content-bg;
+    height:auto;
+    & span {
+        font-weight: bold;
+    }
+}
+
+.blog-thumbnail {
+    margin: -3px 0 0 0;
+    padding: 0px;
+    position: relative;
+}
+
+.blog-thumbnail-caption {
+    position: absolute;
+    padding: 3px;
+    left: 1%;
+    top: 85%;
+    font-size: .85em;
+    background: $content-bg;
+}
+
+.archive-thumbnail {
+    margin:0;
+    padding: 0;
+    min-height: 250px;
+}
+
+.archive-thumbnail img {
+    min-height: 250px;
+    width: 100%;
+}
+.single-thumbnail img {
+    width: 100%;
+    height: 200px;
+}
+
+.blog-thumbnail img {
+    width: 100%;
+    height: 350px;
+    margin-top: -1em;
+}
+
+.single-thumbnail {
+    margin-top: 5px;
+}
+
+.date {
+    position: relative;
+    background: #e6d43d;
+    font-size: 1.25em;
+    height: auto;
+    padding: 5px 15px;
+    & span {
+        text-transform: uppercase;
+    }
+}
+
+.blog-author,
+.blog-date,
+.blog-category {
+    display: inline-block;
+    width: 100%;
+    padding: 5px;
+    text-align: center;
+}
+
+.blog-date {
+    font-size: 1.25em;
+    padding: 10px;
+    text-transform: uppercase;
+}
+
+p.categories {
+    text-align: center;
+}
+
+#blog-share ul {
+    display: inline-block;
+    width: 70%;
+    margin: 15%;
+    text-align: center;
+}
+
+.blog-content {
+    line-height: 1.5em;
+}
+
+#edit-link {
+    display: inline-block;
+    width: 30%;
+    margin-left: 35%;
+    background: #f2f2f2;
+    text-align: center;
+}
+
+/* SIGN UP FORM */
+
+#sidebar1 {
+    width: 100%;
+    background: #2f8888;
+    margin-top: 1em;
+    & input[type="submit"] {
+        border: none;
+        background: $text-color;
+        color: $content-bg;
+        text-transform: uppercase;
+    }
+}
+
+
+.mc4wp-alert {
+    background: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+form#mc4wp-form-1 p {
+    color: white;
+    margin: 15px 0;
+}
+
+form#mc4wp-form-1 h5 {
+    text-transform: uppercase;
+    text-align: center;
+    background: #fff;
+}
+
+/* SOCIAL ICONS + CONTACT */
+
+.twitter {
+    background: #2EBFEC;
+}
+
+.twitter,
+.email,
+.phone,
+.web,
+.linkedin,
+.contact-list {
+    padding: 5px;
+    text-align: center;
+    margin-top: 5px;
+}
+.email {
+    background: tomato;
+}
+.phone, .linkedin {
+    background: $text-color;
+    color: $content-bg;
+}
+
+.web {
+    background: #e6d43d;
+    margin-bottom: 1em;
+}
+
+.contact-list {
+    background: $theme-color;
+    color: $content-bg;
+    text-transform: uppercase;
+}
+
+.fi-mail,
+.fi-social-twitter,
+.fi-telephone,
+.fi-mobile,
+.fi-web,
+.fi-social-linkedin {
+    color: $content-bg;
+}
+
+#contact .fi-mail,
+#contact .fi-social-twitter,
+#contact .fi-telephone,
+#contact .fi-mobile,
+#contact .fi-web,
+#contact .fi-social-linkedin {
+    padding: 0px 3px;
+}
+
+#news-contact .fi-mail,
+#news-contact .fi-social-twitter,
+#news-contact .fi-telephone,
+#news-contact .fi-mobile,
+#news-contact .fi-web,
+#news-contact .fi-social-linkedin {
+    padding: 0px 3px;
+}
+
+#contact a,
+#news-contact a {
+    color: $content-bg;
+}
+
+#contact img {
+    width: 100%;
+}
+
+/* SHARE LINKS */
+
+ul.share-links.columns {
+    list-style-type: none;
+    margin-left: -1em;
+}
+
+#main ul.share-links.columns {
+    margin-left: -5px;
+}
+
+.share-links.columns li {
+   display: inline-block;
+   padding: .5em .2em;
+   width: 30px;
+   height: 30px;
+   line-height: 0;
+   text-align: center;
+   background: tomato;
+   border-radius: 50%;
+   & a:hover {
+       background: none !important;
+   }
+}
+
+.share-links.columns li .fi-social-linkedin,
+.share-links.columns li .fi-social-facebook {
+    color:$content-bg;
+}
+
+/* EVENTS */
+
+.event-content {
+    padding-bottom: 1em;
+}
+
+.event-date {
+    text-align:center;
+    color: #414141;
+    line-height: 1.25em;
+}
+
+.event-date h6 {
+    text-transform: uppercase;
+    color: #414141;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+#map img {
+        width: 100%;
+}
+
+    /* OPERA POSITIONAL FIXES FOR SLIDER + TOP MARGIN OF CONTENT */
+
+x:-o-prefocus, .slider {
+    height: 460px;
+}
+
+x:-o-prefocus, .home #main {
+    height: 480px;
+}
+
+x:-o-prefocus, .one {
+    margin-top: -3em;
+}
+
+x:-o-prefocus, .two {
+    margin-top: 11.5em;
+
+}
+
+x:-o-prefocus, .three {
+    margin-top: 16em;
+}
+
+x:-o-prefocus, #inner-content {
+    margin-top: 3em;
+}
+
+
+x:-o-prefocus, .funder-one {
+    width: 20%;
+}
+
+x:-o-prefocus, .funder-two {
+    width: 40%;
+    margin-left: 40%;
+}
+
+
+x:-o-prefocus, .has-dropdown:hover > .dropdown {
+    overflow: visible !important;
+    }
+
+@media only screen and (max-width: 40.062em) {
+    .single-blog .columns {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    #single-latest,
+    .single ul.share-links.columns {
+        padding-left: 0.9375rem;
+        padding-right: 0.9375rem;
+    }
+    .two,
+    .three{
+        margin-top: 55px;
+        padding: 10px;
+        font-size: 80% !important;
+        color: #999;
+        background: rgba(255,255,255, .8);
+        height: 130px;
+    }
+    .caption img {
+        width: 80% !important;
+        margin: 55px 10% 0 10% !important;
+    }
+    .home #main {
+    margin-top: 2em !important;
+    height: 250px !important;
+    }
+    #search-results, .person-details, #single-team .large-4, #contact {
+        padding: 0;
+    }
+    #inner-content {
+        padding: 3em 0em;
+    }
+    #main-project a .project, #main-people a .people,
+    #project-adviser
+    {
+        margin: 0 0 1em 0;
+    }
+    #main-people .large-4, #main-project .large-4, #people .large-9 {
+        padding: 0;
+    }
+    .home-links {
+        margin-bottom: 1em;
+    }
+    #map {
+    padding: 0;
+    }
+    #mc4wp-form-1 {
+        padding: 1em;
+    }
+    .people-ac-logo img {
+    left: 35%;
+    width: 30%
+    }
+    .people-logo img {
+    left: 35%;
+    width: 30%
+    }
+    x:-o-prefocus, .one {
+    display: none;
+}
+x:-o-prefocus, .two {
+    margin-top: 2em;
+    height: 210px;
+    width: 100%;
+}
+
+x:-o-prefocus, .three {
+    display: none;
+}
+
+/*
+.postid-52 img.team-logo {
+    width: 25px;
+}
+.postid-53 img.team-logo {
+    width: 35px;
+}
+*/
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .people-ac-logo img {
+    left: 25%;
+    width: 50%
+    }
+
+/*
+
+    .postid-52 img.team-logo {
+    width: 60px;
+}
+*/
+}
+
+/*
+RETINA (2x RESOLUTION DEVICES)
+This applies to the retina iPhone (4s) and iPad (2,3) along with
+other displays with a 2x resolution. You can also create a media
+query for retina AND a certain size if you want. Go Nuts.
+*/
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+       only screen and (min--moz-device-pixel-ratio: 1.5),
+       only screen and (min-device-pixel-ratio: 1.5) {
+
+	// styles in 2x.scss
+	@import "2x";
+
+} // end of media query
+
+/*
+iPHONE 5 MEDIA QUERY
+Want to get fancy for no good reason? Knock yourself out.
+*/
+@media (device-height: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+
+  // iPhone 5 or iPod Touch 5th generation styles (you can include your own file if you want)
+
+}
+
+@media screen and (min-width: 1367px) and (max-width: 1920px) {
+    .one img {
+        margin: 3% 30%;
+    }
+
+    .blog-thumbnail img {
+        height: 450px;
+    }
+
+    .people-logo img {
+        margin-top: 10px;
+    }
+    .people .post-54 img {
+        width: 50%;
+        left: 25%;
+    }
+    .people .post-51 img {
+        width: 36%;
+        left: 32%;
+    }
+    .people .post-52 img,
+    .people .post-53 img{
+        width: 40%;
+        left: 30%;
+    }
+
+}
+
+
+/*
+PRINT STYLESHEET
+Feel free to customize this. Remember to add things that won't make
+sense to print at the bottom. Things like nav, ads, and forms should
+be set to display none.
+*/
+@media print {
+	@import "print";
+}
