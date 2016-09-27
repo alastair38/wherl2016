@@ -38,7 +38,7 @@ if(function_exists("register_field_group"))
 				'name' => 'findings_date',
 				'type' => 'date_picker',
 				'date_format' => 'yymmdd',
-                'required' => 1,
+                'required' => 0,
 				'display_format' => 'dd/mm/yy',
 				'first_day' => 1,
 			),
@@ -515,6 +515,7 @@ if(function_exists("register_field_group"))
 				'choices' => array (
 					'Book' => 'Book',
 					'Book Chapter' => 'Book Chapter',
+          'Briefing Note' => 'Briefing Note',
 					'Edited Book' => 'Edited Book',
 					'Journal Article' => 'Journal Article',
 					'Working Paper' => 'Working Paper',
